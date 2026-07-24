@@ -1,0 +1,216 @@
+.hm-analytics-page{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    animation:hmPageReveal .9s cubic-bezier(.22,1,.36,1);
+}
+
+.hm-analytics-page::before{
+    content:"";
+    position:fixed;
+    inset:-20%;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(59,130,246,.08),transparent 28%),
+        radial-gradient(circle at 85% 12%,rgba(16,185,129,.08),transparent 28%),
+        radial-gradient(circle at 50% 95%,rgba(139,92,246,.08),transparent 32%);
+    animation:hmGradientFlow 18s linear infinite;
+    z-index:-1;
+}
+
+.hm-analytics-title{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    font-size:2.2rem !important;
+    font-weight:800 !important;
+    letter-spacing:-.6px;
+    color:#0f172a;
+    animation:hmSlideDown .8s cubic-bezier(.22,1,.36,1);
+}
+
+.hm-analytics-title::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-10px;
+    width:100%;
+    height:5px;
+    border-radius:20px;
+    background:linear-gradient(90deg,#3b82f6,#8b5cf6,#06b6d4);
+    background-size:250% 250%;
+    animation:hmGradientLine 5s linear infinite;
+}
+
+.hm-analytics-alert{
+    border-radius:18px !important;
+    backdrop-filter:blur(18px);
+    box-shadow:0 15px 40px rgba(239,68,68,.18);
+    animation:hmFloatUp .7s ease;
+}
+
+.hm-analytics-grid{
+    animation:hmGridReveal 1s ease both;
+}
+
+.hm-analytics-grid>.MuiGrid-item{
+    animation:hmCardAppear .9s cubic-bezier(.22,1,.36,1);
+    animation-fill-mode:both;
+}
+
+.hm-analytics-grid>.MuiGrid-item:nth-child(1){animation-delay:.05s;}
+.hm-analytics-grid>.MuiGrid-item:nth-child(2){animation-delay:.10s;}
+.hm-analytics-grid>.MuiGrid-item:nth-child(3){animation-delay:.15s;}
+.hm-analytics-grid>.MuiGrid-item:nth-child(4){animation-delay:.20s;}
+.hm-analytics-grid>.MuiGrid-item:nth-child(5){animation-delay:.25s;}
+.hm-analytics-grid>.MuiGrid-item:nth-child(6){animation-delay:.30s;}
+.hm-analytics-grid>.MuiGrid-item:nth-child(7){animation-delay:.35s;}
+.hm-analytics-grid>.MuiGrid-item:nth-child(8){animation-delay:.40s;}
+
+.hm-analytics-grid .MuiPaper-root,
+.hm-analytics-grid .MuiCard-root{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px !important;
+    border:1px solid rgba(255,255,255,.45);
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(22px);
+    box-shadow:
+        0 18px 45px rgba(15,23,42,.08),
+        inset 0 1px rgba(255,255,255,.8);
+    transition:
+        transform .45s cubic-bezier(.22,1,.36,1),
+        box-shadow .45s ease,
+        border-color .45s ease;
+}
+
+.hm-analytics-grid .MuiPaper-root::before,
+.hm-analytics-grid .MuiCard-root::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(130deg,
+        rgba(59,130,246,.15),
+        transparent 35%,
+        rgba(139,92,246,.12));
+    opacity:0;
+    transition:opacity .45s;
+}
+
+.hm-analytics-grid .MuiPaper-root:hover,
+.hm-analytics-grid .MuiCard-root:hover{
+    transform:translateY(-10px) scale(1.015);
+    border-color:rgba(59,130,246,.35);
+    box-shadow:
+        0 28px 60px rgba(59,130,246,.18),
+        0 12px 24px rgba(15,23,42,.08);
+}
+
+.hm-analytics-grid .MuiPaper-root:hover::before,
+.hm-analytics-grid .MuiCard-root:hover::before{
+    opacity:1;
+}
+
+.hm-analytics-grid .MuiPaper-root::after,
+.hm-analytics-grid .MuiCard-root::after{
+    content:"";
+    position:absolute;
+    top:-150%;
+    left:-45%;
+    width:40%;
+    height:400%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent);
+    transform:rotate(24deg);
+    transition:left .9s ease;
+}
+
+.hm-analytics-grid .MuiPaper-root:hover::after,
+.hm-analytics-grid .MuiCard-root:hover::after{
+    left:150%;
+}
+
+@keyframes hmPageReveal{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes hmSlideDown{
+    from{
+        opacity:0;
+        transform:translateY(-35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes hmFloatUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes hmCardAppear{
+    from{
+        opacity:0;
+        transform:translateY(40px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes hmGridReveal{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes hmGradientFlow{
+    from{
+        transform:rotate(0deg) scale(1);
+    }
+    50%{
+        transform:rotate(180deg) scale(1.15);
+    }
+    to{
+        transform:rotate(360deg) scale(1);
+    }
+}
+
+@keyframes hmGradientLine{
+    from{
+        background-position:0% 50%;
+    }
+    to{
+        background-position:250% 50%;
+    }
+}
+
+@media (max-width:900px){
+    .hm-analytics-title{
+        font-size:1.8rem !important;
+    }
+}

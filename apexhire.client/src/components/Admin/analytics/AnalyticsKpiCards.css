@@ -1,0 +1,198 @@
+﻿.hm-analytics-kpi-grid {
+    margin-bottom: 24px !important;
+}
+
+.hm-analytics-kpi-grid-item {
+    animation:
+        hm-kpi-enter
+        0.65s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+    animation-delay:
+        calc(var(--hm-kpi-index, 0) * 70ms);
+}
+
+.hm-analytics-kpi-card.MuiCard-root {
+    position: relative;
+    height: 100%;
+    min-height: 175px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fbf8f3
+        ) !important;
+    border:
+        1px solid
+        rgba(116, 56, 62, 0.13) !important;
+    border-radius: 19px !important;
+    box-shadow:
+        0 14px 34px
+        rgba(76, 34, 39, 0.08) !important;
+    transition:
+        transform 300ms
+            cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 300ms ease,
+        border-color 300ms ease;
+}
+
+.hm-analytics-kpi-card.MuiCard-root::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 5px;
+    content: "";
+    background:
+        linear-gradient(
+            180deg,
+            #74383e,
+            #c6a34e,
+            #273e58
+        );
+}
+
+.hm-analytics-kpi-card.MuiCard-root::after {
+    position: absolute;
+    right: -50px;
+    bottom: -65px;
+    width: 145px;
+    height: 145px;
+    content: "";
+    background:
+        radial-gradient(
+            circle,
+            rgba(198, 163, 78, 0.12),
+            transparent 70%
+        );
+    border-radius: 50%;
+    transition:
+        transform 300ms ease;
+}
+
+.hm-analytics-kpi-card.MuiCard-root:hover {
+    border-color:
+        rgba(198, 163, 78, 0.48) !important;
+    box-shadow:
+        0 22px 48px
+        rgba(76, 34, 39, 0.14) !important;
+    transform:
+        translateY(-7px);
+}
+
+.hm-analytics-kpi-card.MuiCard-root:hover::after {
+    transform: scale(1.25);
+}
+
+.hm-analytics-kpi-content.MuiCardContent-root {
+    position: relative;
+    height: 100%;
+    padding: 22px 22px 24px 26px !important;
+}
+
+.hm-analytics-kpi-content.MuiCardContent-root:last-child {
+    padding-bottom: 24px !important;
+}
+
+.hm-analytics-kpi-number {
+    position: absolute;
+    top: 18px;
+    right: 19px;
+    display: grid;
+    width: 31px;
+    height: 31px;
+    place-items: center;
+    color: #602c32;
+    background: #fff3cf;
+    border:
+        1px solid
+        rgba(198, 163, 78, 0.34);
+    border-radius: 9px;
+    font-size: 0.62rem;
+    font-weight: 900;
+}
+
+.hm-analytics-kpi-label {
+    padding-right: 40px;
+    color: #7b6f70 !important;
+    font-size: 0.72rem !important;
+    font-weight: 850 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase;
+}
+
+.hm-analytics-kpi-value {
+    color: #602c32 !important;
+    font-size: 2.15rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.05em !important;
+}
+
+.hm-analytics-kpi-subtitle {
+    color: #95888a !important;
+    font-size: 0.7rem !important;
+    font-weight: 650 !important;
+}
+
+.hm-analytics-kpi-line {
+    position: absolute;
+    right: 22px;
+    bottom: 18px;
+    left: 26px;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            #74383e,
+            #c6a34e 55%,
+            transparent
+        );
+    border-radius: 999px;
+    transform-origin: left;
+    transition:
+        transform 300ms ease;
+}
+
+.hm-analytics-kpi-card:hover
+.hm-analytics-kpi-line {
+    transform: scaleX(1.08);
+}
+
+.hm-analytics-kpi-skeleton.MuiSkeleton-root {
+    background:
+        linear-gradient(
+            90deg,
+            #f3eded,
+            #fcf7eb,
+            #f3eded
+        );
+}
+
+@keyframes hm-kpi-enter {
+    from {
+        opacity: 0;
+        transform:
+            translateY(28px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+    .hm-analytics-kpi-grid-item {
+        animation: none;
+    }
+
+    .hm-analytics-kpi-card {
+        transition: none !important;
+    }
+}

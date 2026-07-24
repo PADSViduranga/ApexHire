@@ -1,0 +1,598 @@
+﻿:root {
+    --job-maroon: #74151b;
+    --job-maroon-dark: #47090d;
+    --job-maroon-soft: #f8edef;
+
+    --job-gold: #d5a72d;
+    --job-gold-dark: #aa7e12;
+    --job-gold-soft: #fff8df;
+
+    --job-cream: #f7f3ea;
+    --job-white: #ffffff;
+
+    --job-heading: #431014;
+    --job-text: #292624;
+    --job-muted: #6d6963;
+
+    --job-border: #e4dcd0;
+    --job-border-dark: #d3c7b7;
+
+    --job-success: #27634f;
+    --job-success-bg: #e9f5ef;
+
+    --job-danger: #a72b31;
+    --job-danger-bg: #fff0f1;
+
+    --job-shadow:
+        0 18px 45px
+        rgba(68, 31, 20, 0.1);
+
+    --job-shadow-hover:
+        0 24px 55px
+        rgba(68, 31, 20, 0.15);
+}
+
+.create-job-page {
+    width: 100%;
+    max-width: 1500px;
+    min-height: calc(100vh - 90px);
+    margin: 0 auto;
+    padding: 12px 0 60px;
+    color: var(--job-text);
+}
+
+.create-job-heading {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 30px;
+    padding: 5px 0 5px 22px;
+    animation:
+        createJobSlideIn
+        600ms ease both;
+}
+
+.create-job-heading::before {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 0;
+    width: 6px;
+    content: "";
+    background:
+        linear-gradient(
+            180deg,
+            var(--job-maroon),
+            var(--job-gold)
+        );
+    border-radius: 999px;
+}
+
+.create-job-eyebrow {
+    margin: 0 0 8px;
+    color: var(--job-maroon);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.create-job-heading h1 {
+    margin: 0;
+    color: var(--job-heading);
+    font-size:
+        clamp(
+            2.3rem,
+            4vw,
+            3.5rem
+        );
+    font-weight: 850;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+}
+
+.create-job-heading > div > p:last-child {
+    max-width: 680px;
+    margin: 12px 0 0;
+    color: var(--job-muted);
+    font-size: 1.03rem;
+    line-height: 1.65;
+}
+
+.create-job-back-button,
+.create-job-cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 20px;
+    color: var(--job-maroon);
+    background: var(--job-white);
+    border: 1px solid rgba(116, 21, 27, 0.24);
+    border-radius: 9px;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        color 160ms ease,
+        background-color 160ms ease,
+        border-color 160ms ease,
+        transform 160ms ease,
+        box-shadow 160ms ease;
+}
+
+.create-job-back-button:hover:not(:disabled),
+.create-job-cancel-button:hover:not(:disabled) {
+    color: #ffffff;
+    background: var(--job-maroon);
+    border-color: var(--job-maroon);
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 20px
+        rgba(71, 9, 13, 0.16);
+}
+
+.create-job-card {
+    position: relative;
+    overflow: hidden;
+    padding: 36px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.99),
+            rgba(252, 250, 245, 0.99)
+        );
+    border: 1px solid var(--job-border);
+    border-radius: 18px;
+    box-shadow: var(--job-shadow);
+    animation:
+        createJobFadeUp
+        700ms ease both;
+}
+
+.create-job-accent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 7px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--job-maroon-dark),
+            var(--job-maroon),
+            var(--job-gold),
+            #efd477
+        );
+}
+
+.create-job-card::after {
+    position: absolute;
+    top: -150px;
+    right: -130px;
+    width: 360px;
+    height: 360px;
+    content: "";
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle,
+            rgba(213, 167, 45, 0.1),
+            transparent 70%
+        );
+    border-radius: 50%;
+}
+
+.create-job-card-header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--job-border);
+}
+
+.create-job-card-header h2 {
+    margin: 0;
+    color: var(--job-heading);
+    font-size: 1.85rem;
+    font-weight: 850;
+    letter-spacing: -0.025em;
+}
+
+.create-job-card-header > div > p:last-child {
+    margin: 9px 0 0;
+    color: var(--job-muted);
+    line-height: 1.6;
+}
+
+.create-job-required-note {
+    color: var(--job-muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.create-job-alert {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+    padding: 15px 17px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+    animation:
+        createJobAlertIn
+        300ms ease both;
+}
+
+.create-job-alert--error {
+    color: var(--job-danger);
+    background: var(--job-danger-bg);
+    border-color:
+        rgba(167, 43, 49, 0.2);
+}
+
+.create-job-alert--success {
+    color: var(--job-success);
+    background: var(--job-success-bg);
+    border-color:
+        rgba(39, 99, 79, 0.22);
+}
+
+.create-job-page form {
+    position: relative;
+    z-index: 1;
+}
+
+.create-job-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+    gap: 25px 30px;
+}
+
+.create-job-field {
+    display: grid;
+    gap: 9px;
+}
+
+.create-job-field label {
+    color: var(--job-heading);
+    font-size: 0.91rem;
+    font-weight: 800;
+}
+
+.create-job-field label span {
+    margin-left: 4px;
+    color: var(--job-maroon);
+}
+
+.create-job-field input,
+.create-job-field select,
+.create-job-field textarea {
+    width: 100%;
+    padding: 13px 16px;
+    color: var(--job-text);
+    background: var(--job-white);
+    border: 1px solid var(--job-border-dark);
+    border-radius: 10px;
+    outline: none;
+    font: inherit;
+    font-size: 0.98rem;
+    transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease,
+        transform 160ms ease;
+}
+
+.create-job-field input,
+.create-job-field select {
+    min-height: 56px;
+}
+
+.create-job-field select {
+    cursor: pointer;
+}
+
+.create-job-field textarea {
+    min-height: 190px;
+    line-height: 1.65;
+    resize: vertical;
+}
+
+.create-job-field input::placeholder,
+.create-job-field textarea::placeholder {
+    color: #9a948c;
+}
+
+.create-job-field input:hover:not(:disabled),
+.create-job-field select:hover:not(:disabled),
+.create-job-field textarea:hover:not(:disabled) {
+    border-color:
+        rgba(116, 21, 27, 0.45);
+}
+
+.create-job-field input:focus,
+.create-job-field select:focus,
+.create-job-field textarea:focus {
+    border-color: var(--job-maroon);
+    background: #fffdf9;
+    box-shadow:
+        0 0 0 4px
+        rgba(116, 21, 27, 0.09),
+        0 8px 18px
+        rgba(68, 31, 20, 0.06);
+    transform: translateY(-1px);
+}
+
+.create-job-field input:disabled,
+.create-job-field select:disabled,
+.create-job-field textarea:disabled {
+    color: #8a857e;
+    background: #f0ece5;
+    cursor: not-allowed;
+    opacity: 0.72;
+}
+
+.create-job-money-field {
+    position: relative;
+}
+
+.create-job-money-field > span {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    z-index: 1;
+    color: var(--job-maroon);
+    font-size: 0.79rem;
+    font-weight: 850;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.create-job-money-field input {
+    padding-left: 58px;
+}
+
+.create-job-description {
+    margin-top: 25px;
+}
+
+.create-job-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 34px;
+    padding-top: 27px;
+    border-top: 1px solid var(--job-border);
+}
+
+.create-job-submit-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    min-height: 54px;
+    padding: 14px 25px;
+    overflow: hidden;
+    color: #ffffff;
+    background:
+        linear-gradient(
+            180deg,
+            #8c2027 0%,
+            var(--job-maroon) 52%,
+            var(--job-maroon-dark) 100%
+        );
+    border: 1px solid var(--job-maroon-dark);
+    border-bottom: 5px solid #350609;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.97rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow:
+        0 8px 0
+        rgba(71, 9, 13, 0.16),
+        0 14px 25px
+        rgba(71, 9, 13, 0.18),
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.2);
+    transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        filter 150ms ease;
+}
+
+.create-job-submit-button::before {
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 45%;
+    height: 100%;
+    content: "";
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255, 255, 255, 0.32),
+            transparent
+        );
+    transform: skewX(-24deg);
+}
+
+.create-job-submit-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.create-job-submit-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    filter: brightness(1.05);
+    box-shadow:
+        0 11px 0
+        rgba(71, 9, 13, 0.14),
+        0 19px 31px
+        rgba(71, 9, 13, 0.22),
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.23);
+}
+
+.create-job-submit-button:hover:not(:disabled)::before {
+    animation:
+        createJobShine
+        700ms ease;
+}
+
+.create-job-submit-button:active:not(:disabled) {
+    transform: translateY(5px);
+    border-bottom-width: 2px;
+    box-shadow:
+        0 2px 0
+        rgba(71, 9, 13, 0.16),
+        0 7px 14px
+        rgba(71, 9, 13, 0.16);
+}
+
+.create-job-back-button:focus-visible,
+.create-job-cancel-button:focus-visible,
+.create-job-submit-button:focus-visible {
+    outline:
+        3px solid
+        rgba(213, 167, 45, 0.55);
+    outline-offset: 4px;
+}
+
+.create-job-back-button:disabled,
+.create-job-cancel-button:disabled,
+.create-job-submit-button:disabled {
+    opacity: 0.62;
+    cursor: not-allowed;
+}
+
+@keyframes createJobFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes createJobSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes createJobAlertIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes createJobShine {
+    from {
+        left: -130%;
+    }
+
+    to {
+        left: 150%;
+    }
+}
+
+@media (max-width: 900px) {
+    .create-job-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .create-job-card {
+        padding: 28px;
+    }
+
+    .create-job-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .create-job-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 650px) {
+    .create-job-page {
+        padding-bottom: 40px;
+    }
+
+    .create-job-card {
+        padding: 22px 17px;
+        border-radius: 13px;
+    }
+
+    .create-job-heading h1 {
+        font-size: 2.35rem;
+    }
+
+    .create-job-back-button {
+        width: 100%;
+    }
+
+    .create-job-actions {
+        flex-direction: column-reverse;
+    }
+
+    .create-job-cancel-button,
+    .create-job-submit-button {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+    .create-job-heading,
+    .create-job-card,
+    .create-job-alert,
+    .create-job-submit-button::before {
+        animation: none;
+    }
+
+    .create-job-field input,
+    .create-job-field select,
+    .create-job-field textarea,
+    .create-job-back-button,
+    .create-job-cancel-button,
+    .create-job-submit-button {
+        transition: none;
+    }
+}

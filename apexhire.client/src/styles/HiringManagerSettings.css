@@ -1,0 +1,52 @@
+.hm-settings-card {
+    height: 100%;
+    border-radius: 16px !important;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.hm-settings-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 28px rgba(15,23,42,.12);
+}
+
+.hm-settings-card .MuiCardContent-root {
+    padding: 28px;
+}
+
+.hm-settings-card .MuiButton-root {
+    text-transform: none;
+    font-weight: 600;
+}
+
+.hm-settings-card .MuiSwitch-root {
+    margin-right: 8px;
+}
+
+.hm-settings-card .MuiFormControlLabel-root {
+    margin-left: 0;
+    margin-bottom: 6px;
+}
+
+.hm-settings-card .MuiDivider-root {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.hm-settings-card .MuiTextField-root {
+    margin-bottom: 10px;
+}
+
+@media (max-width:900px) {
+    .hm-settings-card {
+        height: auto;
+    }
+}
+
+@media (max-width:600px) {
+    .hm-settings-card .MuiCardContent-root {
+        padding: 18px;
+    }
+}

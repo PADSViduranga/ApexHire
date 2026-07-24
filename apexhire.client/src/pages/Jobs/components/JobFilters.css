@@ -1,0 +1,44 @@
+.job-filters {
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.job-filters__title {
+    margin: 0 0 24px;
+    color: var(--heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.job-filters__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    .job-filters__group label {
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--heading);
+    }
+
+    .job-filters__group input,
+    .job-filters__group select {
+        height: 46px;
+        padding: 0 14px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--background);
+        color: var(--text);
+        font-size: .95rem;
+        outline: none;
+        transition: .2s;
+    }
+
+        .job-filters__group input:focus,
+        .job-filters__group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(122,0,0,.08);
+        }

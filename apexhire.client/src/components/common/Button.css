@@ -1,0 +1,121 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .2s ease, box-shadow .25s ease;
+    white-space: nowrap;
+}
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .btn:active {
+        transform: translateY(0);
+    }
+
+    .btn:disabled {
+        cursor: not-allowed;
+        opacity: .6;
+    }
+
+.btn--sm {
+    height: 38px;
+    padding: 0 18px;
+    font-size: .85rem;
+}
+
+.btn--md {
+    height: 46px;
+    padding: 0 24px;
+    font-size: .95rem;
+}
+
+.btn--lg {
+    height: 54px;
+    padding: 0 30px;
+    font-size: 1rem;
+}
+
+/* Primary */
+
+.btn--primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(122,0,0,.18);
+}
+
+    .btn--primary:hover {
+        background: var(--primary-dark);
+    }
+
+/* Secondary */
+
+.btn--secondary {
+    background: var(--accent);
+    color: #111827;
+}
+
+    .btn--secondary:hover {
+        filter: brightness(.95);
+    }
+
+/* Outline */
+
+.btn--outline {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+    .btn--outline:hover {
+        background: var(--primary);
+        color: white;
+    }
+
+/* Ghost */
+
+.btn--ghost {
+    background: transparent;
+    color: var(--heading);
+}
+
+    .btn--ghost:hover {
+        background: rgba(122,0,0,.08);
+    }
+
+/* Full Width */
+
+.btn--full {
+    width: 100%;
+}
+
+.btn__icon {
+    display: flex;
+    align-items: center;
+}
+
+.btn__spinner {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.4);
+    border-top-color: white;
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+.btn__icon svg {
+    display: block;
+}

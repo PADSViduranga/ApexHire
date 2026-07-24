@@ -1,0 +1,589 @@
+﻿.hm-profile-page {
+    --profile-primary: #3b82f6;
+    --profile-secondary: #8b5cf6;
+    --profile-accent: #06b6d4;
+    --profile-success: #10b981;
+    --profile-danger: #ef4444;
+    --profile-text: #0f172a;
+    --profile-muted: #64748b;
+    --profile-border: rgba(148, 163, 184, 0.22);
+
+    position: relative;
+    min-height: 100%;
+    padding-top: 32px !important;
+    padding-bottom: 48px !important;
+    isolation: isolate;
+    animation: profilePageEnter 0.8s
+        cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hm-profile-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 10% 12%,
+            rgba(59, 130, 246, 0.09),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 14%,
+            rgba(139, 92, 246, 0.08),
+            transparent 29%
+        ),
+        radial-gradient(
+            circle at 55% 90%,
+            rgba(6, 182, 212, 0.07),
+            transparent 34%
+        );
+}
+
+.hm-profile-page::after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 320px;
+    height: 320px;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle,
+            rgba(59, 130, 246, 0.12),
+            transparent 70%
+        );
+    animation: profileOrbFloat 10s
+        ease-in-out infinite alternate;
+}
+
+.hm-profile-content {
+    position: relative;
+}
+
+.hm-profile-header-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 2px;
+    border-radius: 24px;
+    animation: profileHeaderEnter 0.75s
+        cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hm-profile-header-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    background:
+        conic-gradient(
+            from 180deg,
+            transparent,
+            rgba(59, 130, 246, 0.18),
+            transparent,
+            rgba(139, 92, 246, 0.15),
+            transparent
+        );
+    animation: profileBorderRotate 12s
+        linear infinite;
+}
+
+.hm-profile-header-wrapper > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hm-profile-grid > .MuiGrid-item {
+    animation: profileCardEnter 0.8s
+        cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hm-profile-grid > .MuiGrid-item:nth-child(1) {
+    animation-delay: 0.08s;
+}
+
+.hm-profile-grid > .MuiGrid-item:nth-child(2) {
+    animation-delay: 0.16s;
+}
+
+.hm-profile-section {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--profile-border);
+    border-radius: 24px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.96),
+            rgba(248, 250, 252, 0.79)
+        );
+    backdrop-filter: blur(22px);
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.07),
+        0 4px 14px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(0);
+    transition:
+        transform 0.48s
+            cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.48s ease,
+        border-color 0.48s ease;
+    isolation: isolate;
+}
+
+.hm-profile-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59, 130, 246, 0.11),
+            transparent 35%,
+            rgba(139, 92, 246, 0.08)
+        );
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+
+.hm-profile-section::after {
+    content: "";
+    position: absolute;
+    right: -85px;
+    bottom: -115px;
+    width: 230px;
+    height: 230px;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle,
+            rgba(59, 130, 246, 0.15),
+            transparent 68%
+        );
+    transform: scale(0.82);
+    opacity: 0.65;
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+.hm-profile-section:hover {
+    transform: translateY(-7px);
+    border-color: rgba(59, 130, 246, 0.32);
+    box-shadow:
+        0 28px 65px rgba(59, 130, 246, 0.13),
+        0 12px 28px rgba(15, 23, 42, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.hm-profile-section:hover::before {
+    opacity: 1;
+}
+
+.hm-profile-section:hover::after {
+    transform: scale(1.18);
+    opacity: 1;
+}
+
+.hm-profile-section > .MuiCard-root,
+.hm-profile-section > .MuiPaper-root {
+    height: 100%;
+    border: none !important;
+    border-radius: inherit !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.hm-profile-section > .MuiCard-root:hover,
+.hm-profile-section > .MuiPaper-root:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.hm-profile-section .MuiCardContent-root {
+    position: relative;
+    z-index: 2;
+    padding: 27px !important;
+}
+
+.hm-profile-section
+.MuiCardContent-root:last-child {
+    padding-bottom: 27px !important;
+}
+
+.hm-profile-section
+.MuiTypography-h5,
+.hm-profile-section
+.MuiTypography-h6 {
+    color: var(--profile-text);
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+}
+
+.hm-profile-section
+.MuiTypography-body2 {
+    color: var(--profile-muted);
+    line-height: 1.65;
+}
+
+.hm-profile-section
+.MuiOutlinedInput-root {
+    border-radius: 14px;
+    background: rgba(248, 250, 252, 0.78);
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.hm-profile-section
+.MuiOutlinedInput-root:hover {
+    transform: translateY(-1px);
+    background: #ffffff;
+}
+
+.hm-profile-section
+.MuiOutlinedInput-root.Mui-focused {
+    background: #ffffff;
+    box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.1),
+        0 12px 26px rgba(59, 130, 246, 0.09);
+}
+
+.hm-profile-section
+.MuiOutlinedInput-root.Mui-focused
+.MuiOutlinedInput-notchedOutline {
+    border-color: var(--profile-primary);
+    border-width: 1.5px;
+}
+
+.hm-profile-section
+.MuiInputLabel-root.Mui-focused {
+    color: var(--profile-primary);
+}
+
+.hm-profile-section
+.MuiButton-contained {
+    min-height: 43px;
+    padding: 9px 20px;
+    border-radius: 13px !important;
+    background:
+        linear-gradient(
+            135deg,
+            var(--profile-primary),
+            #2563eb
+        ) !important;
+    box-shadow:
+        0 12px 24px rgba(59, 130, 246, 0.22) !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+.hm-profile-section
+.MuiButton-contained:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 18px 32px rgba(59, 130, 246, 0.3) !important;
+}
+
+.hm-profile-section
+.MuiButton-outlined {
+    min-height: 43px;
+    padding: 9px 20px;
+    border-radius: 13px !important;
+    border-color:
+        rgba(148, 163, 184, 0.32) !important;
+    color: var(--profile-text) !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease !important;
+}
+
+.hm-profile-section
+.MuiButton-outlined:hover {
+    transform: translateY(-2px);
+    border-color:
+        rgba(59, 130, 246, 0.38) !important;
+    background:
+        rgba(239, 246, 255, 0.85) !important;
+}
+
+.hm-profile-section
+.MuiButton-text {
+    border-radius: 11px !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+}
+
+.hm-profile-section
+.MuiAvatar-root {
+    border: 4px solid rgba(255, 255, 255, 0.96);
+    box-shadow:
+        0 16px 32px rgba(59, 130, 246, 0.2);
+    transition:
+        transform 0.45s
+            cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s ease;
+}
+
+.hm-profile-section:hover
+.MuiAvatar-root {
+    transform: translateY(-3px) scale(1.045);
+    box-shadow:
+        0 22px 42px rgba(59, 130, 246, 0.26);
+}
+
+.hm-profile-section
+.MuiChip-root {
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.hm-profile-section
+.MuiListItem-root {
+    border-radius: 14px;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.hm-profile-section
+.MuiListItem-root:hover {
+    transform: translateX(4px);
+    background: rgba(59, 130, 246, 0.055);
+}
+
+.hm-profile-section
+.MuiDivider-root {
+    border-color:
+        rgba(148, 163, 184, 0.18);
+}
+
+.hm-profile-section
+.MuiLinearProgress-root {
+    height: 7px;
+    overflow: hidden;
+    border-radius: 999px;
+    background:
+        rgba(148, 163, 184, 0.18);
+}
+
+.hm-profile-section
+.MuiLinearProgress-bar {
+    border-radius: 999px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--profile-primary),
+            var(--profile-secondary),
+            var(--profile-accent)
+        );
+}
+
+.hm-profile-form-actions {
+    position: relative;
+    padding: 4px 2px;
+    animation: profileCardEnter 0.8s
+        0.14s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hm-profile-image-section::after {
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.18),
+            transparent 68%
+        );
+}
+
+.hm-profile-activity-section::after {
+    background:
+        radial-gradient(
+            circle,
+            rgba(6, 182, 212, 0.17),
+            transparent 68%
+        );
+}
+
+.hm-profile-security-section::after {
+    background:
+        radial-gradient(
+            circle,
+            rgba(16, 185, 129, 0.16),
+            transparent 68%
+        );
+}
+
+.hm-profile-loading-page {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hm-profile-loading-page
+.MuiCircularProgress-root {
+    filter:
+        drop-shadow(
+            0 8px 14px
+            rgba(59, 130, 246, 0.28)
+        );
+}
+
+.hm-profile-error-section {
+    padding: 24px;
+    animation: profileErrorEnter 0.55s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hm-profile-snackbar-alert {
+    border-radius: 14px !important;
+    box-shadow:
+        0 16px 38px rgba(15, 23, 42, 0.18) !important;
+    backdrop-filter: blur(16px);
+}
+
+@keyframes profilePageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes profileHeaderEnter {
+    from {
+        opacity: 0;
+        transform:
+            translateY(-20px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes profileCardEnter {
+    from {
+        opacity: 0;
+        transform:
+            translateY(38px)
+            scale(0.955);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes profileErrorEnter {
+    from {
+        opacity: 0;
+        transform:
+            translateY(-12px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes profileBorderRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes profileOrbFloat {
+    from {
+        transform:
+            translate3d(-15px, -8px, 0)
+            scale(0.92);
+    }
+
+    to {
+        transform:
+            translate3d(22px, 28px, 0)
+            scale(1.12);
+    }
+}
+
+@media (max-width: 900px) {
+    .hm-profile-page {
+        padding-top: 24px !important;
+    }
+
+    .hm-profile-section {
+        border-radius: 21px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hm-profile-page {
+        padding-top: 18px !important;
+        padding-bottom: 26px !important;
+    }
+
+    .hm-profile-section {
+        border-radius: 18px;
+    }
+
+    .hm-profile-section
+    .MuiCardContent-root,
+    .hm-profile-section
+    .MuiCardContent-root:last-child {
+        padding: 20px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hm-profile-page,
+    .hm-profile-header-wrapper,
+    .hm-profile-grid > .MuiGrid-item,
+    .hm-profile-form-actions,
+    .hm-profile-error-section,
+    .hm-profile-page::after,
+    .hm-profile-header-wrapper::before {
+        animation: none !important;
+    }
+
+    .hm-profile-section,
+    .hm-profile-section
+    .MuiAvatar-root,
+    .hm-profile-section
+    .MuiOutlinedInput-root,
+    .hm-profile-section
+    .MuiButton-root,
+    .hm-profile-section
+    .MuiListItem-root {
+        transition: none !important;
+    }
+}

@@ -1,0 +1,104 @@
+
+    /*
+     * =====================================================
+     * AUDIT LOGS
+     * =====================================================
+     */
+
+    public async Task<PagedResponse<AuditLogResponse>>
+        GetAuditLogsAsync(
+            AuditLogQueryRequest request)
+    {
+        /*
+         * AuditLog table is not yet implemented.
+         * Returning an empty result keeps the API
+         * compatible until the AuditLog entity is
+         * added later.
+         */
+
+        return await Task.FromResult(
+            new PagedResponse<AuditLogResponse>
+            {
+                Page = request.Page,
+                PageSize = request.PageSize,
+                TotalItems = 0,
+                Items = new List<AuditLogResponse>()
+            });
+    }
+
+    /*
+     * =====================================================
+     * SETTINGS
+     * =====================================================
+     */
+
+    public async Task<AdminSettingsResponse?>
+        GetSettingsAsync()
+    {
+        return await Task.FromResult(
+            new AdminSettingsResponse
+            {
+                ApplicationName = "ApexHire",
+                SupportEmail = "support@apexhire.com",
+                AllowCandidateRegistration = true,
+                RequireEmailVerification = false,
+                EnableMaintenanceMode = false,
+                DefaultPageSize = 10,
+                MaximumPageSize = 100,
+                PasswordMinimumLength = 8,
+                UpdatedAt = DateTime.UtcNow
+            });
+    }
+
+    public async Task<AdminSettingsResponse>
+        UpdateSettingsAsync(
+            UpdateAdminSettingsRequest request)
+    {
+        /*
+         * Persistent settings table will be added
+         * later. For now we simply return the
+         * updated values.
+         */
+
+        return await Task.FromResult(
+            new AdminSettingsResponse
+            {
+                ApplicationName =
+                    request.ApplicationName,
+
+                SupportEmail =
+                    request.SupportEmail,
+
+                AllowCandidateRegistration =
+                    request.AllowCandidateRegistration,
+
+                RequireEmailVerification =
+                    request.RequireEmailVerification,
+
+                EnableMaintenanceMode =
+                    request.EnableMaintenanceMode,
+
+                DefaultPageSize =
+                    request.DefaultPageSize,
+
+                MaximumPageSize =
+                    request.MaximumPageSize,
+
+                PasswordMinimumLength =
+                    request.PasswordMinimumLength,
+
+                UpdatedAt = DateTime.UtcNow
+            });
+    }
+
+    /*
+     * =====================================================
+     * DATABASE
+     * =====================================================
+     */
+
+    public async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
+}

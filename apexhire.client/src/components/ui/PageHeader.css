@@ -1,0 +1,46 @@
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.page-header__content {
+    flex: 1;
+}
+
+.page-header__title {
+    margin: 0;
+    color: var(--heading);
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.page-header__subtitle {
+    margin-top: 10px;
+    max-width: 700px;
+    color: var(--body);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.page-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-header__actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}

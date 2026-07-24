@@ -1,0 +1,86 @@
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: #e5e7eb;
+    border-radius: 8px;
+}
+
+    .skeleton::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background: linear-gradient( 90deg, transparent, rgba(255,255,255,.6), transparent );
+        animation: skeleton-loading 1.2s infinite;
+    }
+
+@keyframes skeleton-loading {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ---------- Default ---------- */
+
+.skeleton:not(.skeleton-avatar) {
+    width: 100%;
+    height: 16px;
+}
+
+/* ---------- Avatar ---------- */
+
+.skeleton-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+/* ---------- Job Card ---------- */
+
+.skeleton-job {
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.skeleton-title {
+    width: 70%;
+    height: 24px;
+    margin-bottom: 18px;
+}
+
+.skeleton-company {
+    width: 45%;
+    height: 16px;
+    margin-bottom: 24px;
+}
+
+.skeleton-line {
+    width: 100%;
+    height: 14px;
+    margin-bottom: 12px;
+}
+
+    .skeleton-line.short {
+        width: 75%;
+    }
+
+.skeleton-tags {
+    display: flex;
+    gap: 10px;
+    margin: 24px 0;
+}
+
+.skeleton-tag {
+    width: 80px;
+    height: 30px;
+    border-radius: 999px;
+}
+
+.skeleton-button {
+    width: 160px;
+    height: 44px;
+    margin-top: 12px;
+    border-radius: 10px;
+}

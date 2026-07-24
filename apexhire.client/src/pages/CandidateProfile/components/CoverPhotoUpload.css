@@ -1,0 +1,197 @@
+﻿.cover-upload {
+    --cover-maroon: #7b1734;
+    --cover-maroon-dark: #4a0b1d;
+    --cover-gold: #f3c641;
+    --cover-gold-light: #ffe992;
+    --cover-blue: #1657b8;
+    --cover-white: #ffffff;
+
+    position: relative;
+    display: inline-flex;
+}
+
+.cover-upload__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.cover-upload-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 160px;
+    min-height: 46px;
+    overflow: hidden;
+    padding: 11px 20px;
+    border: 1px solid rgba(243, 198, 65, 0.52);
+    border-radius: 13px;
+    color: var(--cover-white);
+    background:
+        linear-gradient(
+            135deg,
+            var(--cover-maroon-dark),
+            var(--cover-maroon) 56%,
+            var(--cover-blue)
+        );
+    box-shadow:
+        0 14px 30px rgba(74, 11, 29, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    font-family: "Inter", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 850;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    isolation: isolate;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.cover-upload-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -140%;
+    z-index: -1;
+    width: 72%;
+    height: 100%;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.48),
+            transparent
+        );
+    transform: skewX(-22deg);
+    transition: left 0.7s ease;
+}
+
+.cover-upload-btn::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--cover-gold),
+            var(--cover-gold-light),
+            var(--cover-blue)
+        );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.cover-upload-btn:hover:not(:disabled) {
+    border-color: var(--cover-gold);
+    transform:
+        translateY(-4px)
+        scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(74, 11, 29, 0.3),
+        0 0 24px rgba(243, 198, 65, 0.14);
+}
+
+.cover-upload-btn:hover:not(:disabled)::before {
+    left: 150%;
+}
+
+.cover-upload-btn:hover:not(:disabled)::after {
+    transform: scaleX(1);
+}
+
+.cover-upload-btn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.cover-upload-btn:focus-visible {
+    outline: 4px solid rgba(243, 198, 65, 0.36);
+    outline-offset: 4px;
+}
+
+.cover-upload-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.72;
+}
+
+.cover-upload__icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 0.85rem;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.cover-upload-btn:hover:not(:disabled)
+.cover-upload__icon {
+    background: rgba(243, 198, 65, 0.2);
+    transform:
+        rotate(-6deg)
+        scale(1.08);
+}
+
+.cover-upload__spinner {
+    width: 17px;
+    height: 17px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: var(--cover-gold);
+    border-radius: 50%;
+    animation:
+        coverUploadSpin
+        0.75s
+        linear
+        infinite;
+}
+
+.cover-upload__text {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes coverUploadSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .cover-upload,
+    .cover-upload-btn {
+        width: 100%;
+    }
+
+    .cover-upload-btn {
+        min-height: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cover-upload-btn,
+    .cover-upload-btn::before,
+    .cover-upload-btn::after,
+    .cover-upload__icon,
+    .cover-upload__spinner {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
+}

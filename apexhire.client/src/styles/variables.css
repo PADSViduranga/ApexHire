@@ -1,0 +1,36 @@
+:root {
+    /* Brand Colors */
+    --primary: #7A0000;
+    --primary-light: #A00000;
+    --primary-dark: #5A0000;
+    --accent: #D4AF37;
+    --accent-light: #E8C866;
+    --accent-dark: #B8921E;
+    /* Background */
+    --background: #F8F9FB;
+    --surface: #FFFFFF;
+    --surface-alt: #F1F5F9;
+    /* Text */
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-light: #94A3B8;
+    /* Status */
+    --success: #16A34A;
+    --warning: #F59E0B;
+    --danger: #DC2626;
+    --info: #2563EB;
+    /* Border */
+    --border: #E2E8F0;
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --radius-pill: 999px;
+    /* Shadows */
+    --shadow-sm: 0 2px 6px rgba(0,0,0,.08);
+    --shadow-md: 0 8px 20px rgba(0,0,0,.10);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,.15);
+    /* Animation */
+    --transition: .3s ease;
+}

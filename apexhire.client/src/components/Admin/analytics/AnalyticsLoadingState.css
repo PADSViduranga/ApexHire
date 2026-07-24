@@ -1,0 +1,158 @@
+﻿.hm-analytics-loading-state {
+    min-height: 100%;
+    padding: 10px 0 30px;
+}
+
+.hm-analytics-loading-header {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 25px 27px;
+    color: #ffffff;
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(241, 217, 139, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #82434a,
+            #602c32 65%,
+            #3d1a1e
+        );
+    border-radius: 20px;
+    box-shadow:
+        0 18px 40px
+        rgba(76, 34, 39, 0.14);
+}
+
+.hm-analytics-loading-spinner {
+    position: relative;
+    display: grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    flex: 0 0 52px;
+}
+
+.hm-analytics-loading-spinner::before,
+.hm-analytics-loading-spinner::after {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+}
+
+.hm-analytics-loading-spinner::before {
+    inset: 0;
+    border:
+        4px solid
+        rgba(255, 255, 255, 0.15);
+    border-top-color: #e7ca72;
+    animation:
+        hm-analytics-loading-spin
+        0.9s
+        linear
+        infinite;
+}
+
+.hm-analytics-loading-spinner::after {
+    inset: 11px;
+    background:
+        rgba(231, 202, 114, 0.18);
+}
+
+.hm-analytics-loading-title {
+    color: #ffffff !important;
+    font-size: 1.12rem !important;
+    font-weight: 850 !important;
+}
+
+.hm-analytics-loading-subtitle {
+    margin-top: 4px !important;
+    color:
+        rgba(255, 255, 255, 0.68) !important;
+    font-size: 0.76rem !important;
+}
+
+.hm-analytics-loading-filter.MuiPaper-root {
+    padding: 22px;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fcfaf6
+        ) !important;
+    border:
+        1px solid
+        rgba(116, 56, 62, 0.13) !important;
+    border-radius: 19px !important;
+    box-shadow:
+        0 14px 34px
+        rgba(76, 34, 39, 0.08) !important;
+}
+
+.hm-analytics-loading-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.hm-analytics-loading-skeleton.MuiSkeleton-root,
+.hm-analytics-loading-card.MuiSkeleton-root,
+.hm-analytics-loading-panel.MuiSkeleton-root {
+    background:
+        linear-gradient(
+            100deg,
+            #f3eded 20%,
+            #fff7df 45%,
+            #f3eded 70%
+        );
+    background-size: 250% 100%;
+    border:
+        1px solid
+        rgba(116, 56, 62, 0.08);
+    border-radius: 16px;
+    animation:
+        hm-analytics-loading-shimmer
+        1.8s
+        linear
+        infinite;
+}
+
+.hm-analytics-loading-card.MuiSkeleton-root {
+    border-radius: 18px;
+}
+
+.hm-analytics-loading-panel.MuiSkeleton-root {
+    border-radius: 21px;
+}
+
+@keyframes hm-analytics-loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hm-analytics-loading-shimmer {
+    from {
+        background-position: 220% 0;
+    }
+
+    to {
+        background-position: -30% 0;
+    }
+}
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+    .hm-analytics-loading-spinner::before,
+    .hm-analytics-loading-skeleton,
+    .hm-analytics-loading-card,
+    .hm-analytics-loading-panel {
+        animation: none !important;
+    }
+}

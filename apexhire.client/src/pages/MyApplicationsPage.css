@@ -1,0 +1,310 @@
+﻿:root {
+    --condo-primary: #12355b;
+    --condo-primary-dark: #0b2545;
+    --condo-secondary: #1d7874;
+    --condo-accent: #d4a017;
+    --condo-background: #f4f7fa;
+    --condo-surface: #ffffff;
+    --condo-text: #172033;
+    --condo-muted: #64748b;
+    --condo-border: #dbe3ec;
+    --condo-success: #15803d;
+    --condo-success-bg: #dcfce7;
+    --condo-danger: #b91c1c;
+    --condo-danger-bg: #fee2e2;
+    --condo-warning-bg: #fef3c7;
+    --condo-shadow: 0 12px 32px rgba(15, 35, 60, 0.09);
+}
+
+.page-container:has(.my-applications-page) {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18, 53, 91, 0.04),
+            rgba(29, 120, 116, 0.05)
+        ),
+        var(--condo-background);
+}
+
+.my-applications-page {
+    width: 100%;
+    min-height: calc(100vh - 160px);
+    padding: 44px 32px 64px;
+    color: var(--condo-text);
+}
+
+.my-applications-page .page-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.my-applications-page .eyebrow {
+    margin: 0 0 10px;
+    color: var(--condo-secondary);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.my-applications-page h1 {
+    margin: 0;
+    color: var(--condo-primary-dark);
+    font-size: clamp(2.3rem, 5vw, 4.4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.my-applications-page .muted {
+    max-width: 680px;
+    margin: 14px 0 0;
+    color: var(--condo-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.my-applications-page .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        transform 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease,
+        border-color 160ms ease;
+}
+
+.my-applications-page .button:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.my-applications-page .button:focus-visible,
+.my-applications-page a:focus-visible {
+    outline: 3px solid rgba(212, 160, 23, 0.35);
+    outline-offset: 3px;
+}
+
+.my-applications-page .button-primary {
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        var(--condo-primary),
+        var(--condo-secondary)
+    );
+    box-shadow: 0 8px 18px rgba(18, 53, 91, 0.2);
+}
+
+.my-applications-page .button-primary:hover {
+    box-shadow: 0 12px 24px rgba(18, 53, 91, 0.28);
+}
+
+.my-applications-page .button-danger {
+    color: var(--condo-danger);
+    background: var(--condo-danger-bg);
+    border-color: rgba(185, 28, 28, 0.2);
+}
+
+.my-applications-page .button-danger:hover:not(:disabled) {
+    color: #ffffff;
+    background: var(--condo-danger);
+}
+
+.my-applications-page .button-small {
+    min-height: 36px;
+    padding: 8px 13px;
+    font-size: 0.88rem;
+}
+
+.my-applications-page .button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.my-applications-page .alert {
+    margin-bottom: 22px;
+    padding: 14px 17px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.my-applications-page .alert-error {
+    color: var(--condo-danger);
+    background: var(--condo-danger-bg);
+    border-color: rgba(185, 28, 28, 0.2);
+}
+
+.my-applications-page .alert-success {
+    color: var(--condo-success);
+    background: var(--condo-success-bg);
+    border-color: rgba(21, 128, 61, 0.2);
+}
+
+.my-applications-page .status-message {
+    padding: 32px;
+    color: var(--condo-muted);
+    text-align: center;
+    background: var(--condo-surface);
+    border: 1px solid var(--condo-border);
+    border-radius: 14px;
+    box-shadow: var(--condo-shadow);
+}
+
+.my-applications-page .empty-state {
+    padding: 52px 28px;
+    text-align: center;
+    background: var(--condo-surface);
+    border: 1px solid var(--condo-border);
+    border-radius: 16px;
+    box-shadow: var(--condo-shadow);
+}
+
+.my-applications-page .empty-state h2 {
+    margin: 0 0 10px;
+    color: var(--condo-primary-dark);
+    font-size: 1.6rem;
+}
+
+.my-applications-page .empty-state p {
+    margin: 0 0 24px;
+    color: var(--condo-muted);
+}
+
+.my-applications-page .table-wrapper {
+    overflow-x: auto;
+    background: var(--condo-surface);
+    border: 1px solid var(--condo-border);
+    border-radius: 16px;
+    box-shadow: var(--condo-shadow);
+}
+
+.my-applications-page table {
+    width: 100%;
+    min-width: 780px;
+    border-collapse: collapse;
+}
+
+.my-applications-page thead {
+    background: linear-gradient(
+        135deg,
+        var(--condo-primary-dark),
+        var(--condo-primary)
+    );
+}
+
+.my-applications-page th {
+    padding: 17px 20px;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.my-applications-page th:first-child {
+    border-top-left-radius: 15px;
+}
+
+.my-applications-page th:last-child {
+    border-top-right-radius: 15px;
+}
+
+.my-applications-page td {
+    padding: 17px 20px;
+    color: var(--condo-text);
+    border-bottom: 1px solid var(--condo-border);
+    vertical-align: middle;
+}
+
+.my-applications-page tbody tr {
+    transition: background-color 160ms ease;
+}
+
+.my-applications-page tbody tr:hover {
+    background: rgba(29, 120, 116, 0.055);
+}
+
+.my-applications-page tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.my-applications-page td:first-child {
+    color: var(--condo-primary-dark);
+    font-weight: 750;
+}
+
+.my-applications-page .badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 5px 11px;
+    color: var(--condo-primary-dark);
+    background: var(--condo-warning-bg);
+    border: 1px solid rgba(212, 160, 23, 0.28);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.my-applications-page .table-actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    white-space: nowrap;
+}
+
+.my-applications-page .table-actions a {
+    color: var(--condo-secondary);
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.my-applications-page .table-actions a:hover {
+    color: var(--condo-primary-dark);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .my-applications-page {
+        padding: 30px 18px 48px;
+    }
+
+    .my-applications-page .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .my-applications-page .page-heading .button {
+        width: 100%;
+    }
+
+    .my-applications-page h1 {
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-applications-page {
+        padding-inline: 14px;
+    }
+
+    .my-applications-page h1 {
+        font-size: 2.15rem;
+    }
+}

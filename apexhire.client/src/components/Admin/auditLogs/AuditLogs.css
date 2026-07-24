@@ -1,0 +1,186 @@
+.condo-empty-audit-card{
+    position:relative;
+    overflow:hidden;
+    padding:70px 40px;
+    border-radius:24px!important;
+    border:1px solid rgba(116,0,27,.12)!important;
+    background:
+        radial-gradient(circle at top right,
+            rgba(255,196,0,.14),
+            transparent 35%),
+        linear-gradient(145deg,#ffffff,#fffaf2);
+    box-shadow:
+        0 18px 45px rgba(67,0,15,.08),
+        0 6px 18px rgba(67,0,15,.04);
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.condo-empty-audit-card:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 26px 55px rgba(67,0,15,.13),
+        0 10px 25px rgba(67,0,15,.06);
+}
+
+.condo-empty-audit-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:30px;
+    right:30px;
+    height:4px;
+    border-radius:0 0 10px 10px;
+    background:linear-gradient(
+        90deg,
+        #74001b,
+        #ffc400,
+        #005baa
+    );
+}
+
+.condo-empty-glow{
+    position:absolute;
+    top:-110px;
+    right:-110px;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    background:rgba(255,196,0,.12);
+    box-shadow:
+        0 0 0 40px rgba(255,196,0,.03),
+        0 0 0 80px rgba(0,91,170,.02);
+    animation:condoGlow 8s ease-in-out infinite;
+}
+
+.condo-empty-content{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.condo-empty-icon-wrapper{
+    position:relative;
+    margin-bottom:30px;
+}
+
+.condo-empty-icon-ring{
+    position:absolute;
+    inset:-12px;
+    border-radius:50%;
+    border:2px dashed rgba(255,196,0,.45);
+    animation:condoRotate 14s linear infinite;
+}
+
+.condo-empty-icon{
+    width:90px;
+    height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:
+        linear-gradient(
+            145deg,
+            #74001b,
+            #43000f
+        );
+    color:#ffc400;
+    box-shadow:
+        0 18px 40px rgba(116,0,27,.22),
+        inset 0 2px rgba(255,255,255,.15);
+}
+
+.condo-empty-icon .MuiSvgIcon-root{
+    font-size:42px;
+    animation:condoPulse 2.8s ease-in-out infinite;
+}
+
+.condo-empty-label{
+    color:#74001b!important;
+    font-weight:900!important;
+    letter-spacing:2px!important;
+    margin-bottom:8px!important;
+}
+
+.condo-empty-title{
+    color:#3b1020!important;
+    font-weight:900!important;
+    margin-bottom:16px!important;
+}
+
+.condo-empty-description{
+    max-width:560px;
+    color:#70545e!important;
+    font-size:.98rem!important;
+    line-height:1.8!important;
+    margin-bottom:32px!important;
+}
+
+.condo-reset-button{
+    padding:12px 28px!important;
+    border-radius:12px!important;
+    background:
+        linear-gradient(
+            135deg,
+            #74001b,
+            #005baa
+        )!important;
+    color:#fff!important;
+    font-weight:700!important;
+    text-transform:none!important;
+    box-shadow:
+        0 12px 25px rgba(116,0,27,.25)!important;
+    transition:all .35s ease!important;
+}
+
+.condo-reset-button:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 18px 35px rgba(116,0,27,.35)!important;
+}
+
+@keyframes condoRotate{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes condoPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+@keyframes condoGlow{
+    0%,100%{
+        transform:translate(0,0) scale(1);
+    }
+    50%{
+        transform:translate(-18px,20px) scale(1.08);
+    }
+}
+
+@media(max-width:768px){
+    .condo-empty-audit-card{
+        padding:50px 24px;
+    }
+
+    .condo-empty-title{
+        font-size:1.7rem!important;
+    }
+
+    .condo-empty-description{
+        font-size:.92rem!important;
+    }
+}

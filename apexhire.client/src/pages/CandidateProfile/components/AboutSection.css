@@ -1,0 +1,292 @@
+﻿.about-card {
+    --about-maroon: #7b1734;
+    --about-maroon-dark: #4a0b1d;
+    --about-gold: #f3c641;
+    --about-gold-light: #ffe992;
+    --about-blue: #1657b8;
+    --about-text: #2b1a20;
+    --about-muted: #74636a;
+    --about-border: rgba(123, 23, 52, 0.13);
+
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    border: 1px solid var(--about-border);
+    border-radius: 24px;
+    background:
+        radial-gradient(
+            circle at 92% 8%,
+            rgba(243, 198, 65, 0.17),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 4% 100%,
+            rgba(22, 87, 184, 0.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.99),
+            rgba(255, 250, 240, 0.96)
+        );
+    box-shadow:
+        0 22px 54px rgba(74, 11, 29, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.86);
+    isolation: isolate;
+    animation:
+        aboutCardReveal
+        0.55s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 6px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--about-maroon),
+            var(--about-gold),
+            var(--about-blue),
+            var(--about-maroon)
+        );
+    background-size: 220% 100%;
+    animation:
+        aboutAccentMove
+        7s
+        linear
+        infinite;
+}
+
+.about-card::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    z-index: -1;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(243, 198, 65, 0.22),
+            transparent 70%
+        );
+    animation:
+        aboutOrbFloat
+        9s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+.about-card__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(123, 23, 52, 0.1);
+}
+
+.about-card__icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border: 1px solid rgba(243, 198, 65, 0.42);
+    border-radius: 14px;
+    color: #ffffff;
+    background:
+        linear-gradient(
+            145deg,
+            var(--about-maroon-dark),
+            var(--about-maroon) 55%,
+            var(--about-blue)
+        );
+    box-shadow:
+        0 13px 28px rgba(123, 23, 52, 0.22);
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.about-card__icon::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.about-card__header-content {
+    min-width: 0;
+}
+
+.about-card__header h2 {
+    position: relative;
+    margin: 0;
+    color: var(--about-text);
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+}
+
+.about-card__header span {
+    display: block;
+    margin-top: 4px;
+    color: var(--about-muted);
+    font-family: "Inter", sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.about-text {
+    position: relative;
+    margin: 0;
+    padding: 22px 24px;
+    border: 1px solid rgba(123, 23, 52, 0.1);
+    border-left: 5px solid var(--about-gold);
+    border-radius: 16px;
+    color: #4f3e45;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.96),
+            rgba(243, 198, 65, 0.09)
+        );
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    font-family: "Inter", sans-serif;
+    font-size: 0.97rem;
+    line-height: 1.85;
+    white-space: pre-line;
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.about-text::before {
+    content: "“";
+    position: absolute;
+    top: -4px;
+    right: 16px;
+    color: rgba(123, 23, 52, 0.09);
+    font-family: Georgia, serif;
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.about-text:hover {
+    border-color: rgba(123, 23, 52, 0.22);
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            rgba(243, 198, 65, 0.13)
+        );
+    box-shadow:
+        0 16px 34px rgba(74, 11, 29, 0.09);
+    transform: translateY(-3px);
+}
+
+.about-text--empty {
+    color: #94838a;
+    font-style: italic;
+}
+
+@keyframes aboutCardReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes aboutAccentMove {
+    from {
+        background-position: 0 50%;
+    }
+
+    to {
+        background-position: 220% 50%;
+    }
+}
+
+@keyframes aboutOrbFloat {
+    from {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(-34px, 28px, 0)
+            scale(1.12);
+    }
+}
+
+@media (max-width: 700px) {
+    .about-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .about-card__header {
+        align-items: flex-start;
+    }
+
+    .about-text {
+        padding: 19px 18px;
+        font-size: 0.92rem;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-card {
+        padding: 22px 16px;
+    }
+
+    .about-card__icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .about-card__header h2 {
+        font-size: 1.35rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-card,
+    .about-card::before,
+    .about-card::after,
+    .about-text {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
+}

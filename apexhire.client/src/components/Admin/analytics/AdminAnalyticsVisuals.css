@@ -1,0 +1,636 @@
+﻿:root {
+    --condo-maroon: #74001b;
+    --condo-maroon-dark: #43000f;
+    --condo-maroon-soft: rgba(116, 0, 27, 0.08);
+    --condo-yellow: #ffc400;
+    --condo-yellow-light: #ffe16a;
+    --condo-yellow-soft: rgba(255, 196, 0, 0.12);
+    --condo-blue: #005baa;
+    --condo-blue-dark: #003f78;
+    --condo-blue-soft: rgba(0, 91, 170, 0.09);
+    --condo-white: #ffffff;
+    --condo-cream: #fffaf0;
+    --condo-text: #3b1020;
+    --condo-muted: #785d67;
+    --condo-border: rgba(116, 0, 27, 0.12);
+}
+
+.condo-analytics-card.MuiPaper-root {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid var(--condo-border);
+    border-radius: 22px;
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(255, 196, 0, 0.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            var(--condo-white),
+            var(--condo-cream)
+        );
+    box-shadow:
+        0 16px 40px rgba(67, 0, 15, 0.08),
+        0 3px 10px rgba(67, 0, 15, 0.04);
+    animation:
+        condoAnalyticsCardReveal
+        0.7s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.condo-analytics-card.MuiPaper-root::before {
+    position: absolute;
+    top: 0;
+    left: 28px;
+    right: 28px;
+    height: 3px;
+    content: "";
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(
+        90deg,
+        var(--condo-maroon),
+        var(--condo-yellow),
+        var(--condo-blue)
+    );
+    box-shadow: 0 4px 16px rgba(255, 196, 0, 0.22);
+}
+
+.condo-analytics-card.MuiPaper-root:hover {
+    border-color: rgba(116, 0, 27, 0.24);
+    box-shadow:
+        0 24px 55px rgba(67, 0, 15, 0.14),
+        0 6px 16px rgba(67, 0, 15, 0.06);
+    transform: translateY(-6px);
+}
+
+.condo-card-glow {
+    position: absolute;
+    top: -90px;
+    right: -80px;
+    z-index: -1;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgba(255, 196, 0, 0.09);
+    box-shadow:
+        0 0 0 30px rgba(255, 196, 0, 0.025),
+        0 0 0 60px rgba(0, 91, 170, 0.018);
+    animation: condoAnalyticsGlow 8s ease-in-out infinite;
+}
+
+.condo-analytics-chart-card {
+    padding: 24px;
+}
+
+.condo-analytics-card-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.condo-analytics-card-eyebrow.MuiTypography-root {
+    margin-bottom: 5px;
+    color: var(--condo-maroon);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.condo-analytics-card-title.MuiTypography-root {
+    color: var(--condo-text);
+    font-size: 20px;
+    font-weight: 850;
+    letter-spacing: -0.35px;
+}
+
+.condo-analytics-card-description.MuiTypography-root {
+    max-width: 620px;
+    margin-top: 6px;
+    color: var(--condo-muted);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.condo-chart-badge,
+.condo-table-count {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    color: var(--condo-maroon);
+    border: 1px solid rgba(255, 196, 0, 0.4);
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--condo-yellow-light),
+            var(--condo-yellow)
+        );
+    box-shadow:
+        0 9px 20px rgba(255, 196, 0, 0.2),
+        inset 0 1px rgba(255, 255, 255, 0.65);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.condo-chart-badge {
+    padding: 8px 13px;
+}
+
+.condo-table-count {
+    flex-direction: column;
+    min-width: 62px;
+    padding: 7px 12px;
+    font-size: 17px;
+    line-height: 1;
+}
+
+.condo-table-count span {
+    margin-top: 4px;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.condo-analytics-chart-area {
+    width: 100%;
+    height: 320px;
+    animation: condoChartReveal 0.85s ease both;
+}
+
+.condo-source-chart-area {
+    height: 340px;
+}
+
+.condo-analytics-skeleton.MuiSkeleton-root {
+    border-radius: 18px;
+    background:
+        linear-gradient(
+            100deg,
+            rgba(116, 0, 27, 0.05),
+            rgba(255, 196, 0, 0.14),
+            rgba(0, 91, 170, 0.05)
+        );
+}
+
+.condo-analytics-empty-state {
+    display: flex;
+    height: 320px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    text-align: center;
+}
+
+.condo-table-empty {
+    min-height: 320px;
+    height: auto;
+}
+
+.condo-empty-icon {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    width: 56px;
+    height: 56px;
+    padding: 12px;
+    border: 1px solid rgba(116, 0, 27, 0.1);
+    border-radius: 18px;
+    background:
+        linear-gradient(
+            145deg,
+            var(--condo-yellow-soft),
+            var(--condo-blue-soft)
+        );
+    box-shadow: 0 10px 24px rgba(67, 0, 15, 0.08);
+}
+
+.condo-empty-icon span {
+    flex: 1;
+    border-radius: 5px 5px 2px 2px;
+    background: var(--condo-maroon);
+    animation: condoEmptyBars 1.5s ease-in-out infinite alternate;
+}
+
+.condo-empty-icon span:nth-child(1) {
+    height: 40%;
+}
+
+.condo-empty-icon span:nth-child(2) {
+    height: 80%;
+    background: var(--condo-yellow);
+    animation-delay: 0.2s;
+}
+
+.condo-empty-icon span:nth-child(3) {
+    height: 58%;
+    background: var(--condo-blue);
+    animation-delay: 0.4s;
+}
+
+.condo-empty-title.MuiTypography-root {
+    margin-top: 15px;
+    color: var(--condo-text);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.condo-empty-text.MuiTypography-root {
+    margin-top: 5px;
+    color: var(--condo-muted);
+    font-size: 12px;
+}
+
+.condo-analytics-tooltip.MuiPaper-root {
+    min-width: 175px;
+    padding: 14px;
+    color: var(--condo-white);
+    border: 1px solid rgba(255, 196, 0, 0.3);
+    border-radius: 15px;
+    background:
+        linear-gradient(
+            145deg,
+            var(--condo-maroon-dark),
+            var(--condo-maroon)
+        );
+    box-shadow:
+        0 16px 35px rgba(67, 0, 15, 0.28),
+        inset 0 1px rgba(255, 255, 255, 0.12);
+    animation: condoTooltipReveal 0.2s ease both;
+}
+
+.condo-tooltip-label.MuiTypography-root {
+    margin-bottom: 9px;
+    color: var(--condo-yellow-light);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.condo-tooltip-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.condo-tooltip-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 auto;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.condo-tooltip-value.MuiTypography-root {
+    color: var(--condo-white);
+    font-size: 12px;
+}
+
+.condo-tooltip-title.MuiTypography-root {
+    margin-bottom: 10px;
+    color: var(--condo-yellow-light);
+    font-size: 13px;
+    font-weight: 850;
+}
+
+.condo-tooltip-grid {
+    display: grid;
+    gap: 7px;
+}
+
+.condo-tooltip-grid div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 11px;
+}
+
+.condo-tooltip-grid span {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.condo-tooltip-grid strong {
+    color: var(--condo-white);
+    font-size: 12px;
+}
+
+.condo-analytics-table-card {
+    padding-top: 24px;
+}
+
+.condo-analytics-table-card
+.condo-analytics-card-header {
+    padding: 0 24px;
+}
+
+.condo-table-loading {
+    padding: 0 24px 24px;
+}
+
+.condo-analytics-table-container {
+    border-top: 1px solid rgba(116, 0, 27, 0.08);
+}
+
+.condo-analytics-table {
+    min-width: 980px;
+}
+
+.condo-analytics-table
+.MuiTableCell-root {
+    padding: 15px 18px;
+    color: var(--condo-text);
+    border-color: rgba(116, 0, 27, 0.075);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.condo-analytics-table
+.MuiTableHead-root
+.MuiTableCell-root {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    color: var(--condo-maroon);
+    background:
+        linear-gradient(
+            180deg,
+            #fff8df,
+            #fffdf7
+        );
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.condo-analytics-table-row {
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.condo-analytics-table-row:hover {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 196, 0, 0.075),
+            rgba(0, 91, 170, 0.025)
+        );
+    box-shadow: inset 4px 0 var(--condo-yellow);
+}
+
+.condo-table-primary-cell {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.condo-table-avatar {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    color: var(--condo-white);
+    border: 2px solid rgba(255, 196, 0, 0.55);
+    border-radius: 11px;
+    background:
+        linear-gradient(
+            145deg,
+            var(--condo-maroon),
+            var(--condo-maroon-dark)
+        );
+    box-shadow: 0 7px 16px rgba(116, 0, 27, 0.18);
+    font-size: 13px;
+    font-weight: 900;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.condo-recruiter-avatar {
+    background:
+        linear-gradient(
+            145deg,
+            var(--condo-blue),
+            var(--condo-blue-dark)
+        );
+    box-shadow: 0 7px 16px rgba(0, 91, 170, 0.18);
+}
+
+.condo-analytics-table-row:hover
+.condo-table-avatar {
+    transform: scale(1.08) rotate(-4deg);
+}
+
+.condo-table-primary-text.MuiTypography-root {
+    color: var(--condo-text);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.condo-table-secondary-text.MuiTypography-root {
+    max-width: 190px;
+    margin-top: 3px;
+    overflow: hidden;
+    color: var(--condo-muted);
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.condo-department-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 9px;
+    color: var(--condo-blue-dark);
+    border: 1px solid rgba(0, 91, 170, 0.14);
+    border-radius: 999px;
+    background: var(--condo-blue-soft);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.condo-highlight-number {
+    color: var(--condo-maroon);
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.condo-percentage-value {
+    display: inline-block;
+    min-width: 55px;
+    padding: 5px 8px;
+    color: var(--condo-maroon);
+    border-radius: 8px;
+    background: var(--condo-yellow-soft);
+    font-size: 10px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.condo-status-chip.MuiChip-root {
+    height: 25px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.condo-status-success.MuiChip-root {
+    color: var(--condo-blue-dark);
+    border-color: rgba(0, 91, 170, 0.25);
+    background: rgba(0, 91, 170, 0.1);
+}
+
+.condo-status-warning.MuiChip-root {
+    color: var(--condo-maroon);
+    border-color: rgba(255, 196, 0, 0.45);
+    background: rgba(255, 196, 0, 0.18);
+}
+
+.condo-status-error.MuiChip-root {
+    color: var(--condo-white);
+    border-color: var(--condo-maroon);
+    background: var(--condo-maroon);
+}
+
+.condo-status-neutral.MuiChip-root {
+    color: var(--condo-muted);
+    border-color: rgba(116, 0, 27, 0.14);
+    background: rgba(116, 0, 27, 0.055);
+}
+
+@keyframes condoAnalyticsCardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes condoChartReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes condoTooltipReveal {
+    from {
+        opacity: 0;
+        transform: translateY(5px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes condoAnalyticsGlow {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(-16px, 14px, 0) scale(1.12);
+    }
+}
+
+@keyframes condoEmptyBars {
+    from {
+        transform: scaleY(0.7);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 900px) {
+    .condo-analytics-card-header {
+        align-items: flex-start;
+    }
+
+    .condo-analytics-chart-card {
+        padding: 20px;
+    }
+
+    .condo-analytics-table-card
+    .condo-analytics-card-header {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .condo-analytics-card.MuiPaper-root {
+        border-radius: 18px;
+    }
+
+    .condo-analytics-card-header {
+        flex-direction: column;
+    }
+
+    .condo-chart-badge,
+    .condo-table-count {
+        align-self: flex-start;
+    }
+
+    .condo-analytics-card-title.MuiTypography-root {
+        font-size: 18px;
+    }
+
+    .condo-analytics-chart-area {
+        height: 290px;
+    }
+
+    .condo-source-chart-area {
+        height: 320px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .condo-analytics-card,
+    .condo-card-glow,
+    .condo-empty-icon span,
+    .condo-analytics-chart-area,
+    .condo-analytics-tooltip {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="apexhire.client/apexhire.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="ApexHire.Server/ApexHire.Server.csproj" />
+</Solution>

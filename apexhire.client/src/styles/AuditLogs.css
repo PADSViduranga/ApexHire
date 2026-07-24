@@ -1,0 +1,1372 @@
+﻿/* =========================================================
+   ApexHire - Admin Audit Logs
+   Premium Animated Enterprise Theme
+========================================================= */
+
+.audit-logs-page {
+    --audit-primary: #0b3c5d;
+    --audit-primary-dark: #072c44;
+    --audit-secondary: #0f766e;
+    --audit-secondary-light: #14b8a6;
+    --audit-accent: #d19a32;
+
+    --audit-surface: #ffffff;
+    --audit-surface-soft: #f7fafc;
+    --audit-background: #f1f6f8;
+
+    --audit-text: #172334;
+    --audit-muted: #64748b;
+
+    --audit-border:
+        rgba(11, 60, 93, 0.12);
+
+    --audit-shadow-sm:
+        0 4px 12px rgba(7, 44, 68, 0.05);
+
+    --audit-shadow-md:
+        0 14px 34px rgba(7, 44, 68, 0.09);
+
+    --audit-shadow-lg:
+        0 24px 56px rgba(7, 44, 68, 0.15);
+
+    position: relative;
+    isolation: isolate;
+
+    min-height: 100%;
+
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    animation:
+        audit-page-enter 0.6s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.audit-logs-page::before {
+    position: fixed;
+    top: 70px;
+    right: -120px;
+    z-index: -1;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(20, 184, 166, 0.12),
+            rgba(20, 184, 166, 0)
+            70%
+        );
+
+    content: "";
+    pointer-events: none;
+}
+
+.audit-logs-page::after {
+    position: fixed;
+    bottom: -180px;
+    left: -150px;
+    z-index: -1;
+
+    width: 480px;
+    height: 480px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(11, 60, 93, 0.1),
+            rgba(11, 60, 93, 0)
+            72%
+        );
+
+    content: "";
+    pointer-events: none;
+}
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.audit-logs-header {
+    position: relative;
+
+    margin-bottom: 28px;
+    padding: 28px 30px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--audit-border);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(235, 247, 245, 0.97)
+        );
+
+    box-shadow:
+        var(--audit-shadow-md);
+
+    animation:
+        audit-header-enter 0.65s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.audit-logs-header::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 6px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--audit-primary),
+            var(--audit-secondary),
+            var(--audit-accent)
+        );
+
+    content: "";
+}
+
+.audit-logs-header::after {
+    position: absolute;
+    top: -110px;
+    right: -80px;
+
+    width: 250px;
+    height: 250px;
+
+    border:
+        38px solid
+        rgba(15, 118, 110, 0.05);
+
+    border-radius: 50%;
+
+    content: "";
+    pointer-events: none;
+
+    animation:
+        audit-orbit 12s
+        linear
+        infinite;
+}
+
+.audit-logs-header h1 {
+    margin: 0;
+
+    color:
+        var(--audit-primary);
+
+    font-size:
+        clamp(1.8rem, 3vw, 2.4rem);
+
+    font-weight: 800;
+    letter-spacing: -0.045em;
+}
+
+.audit-logs-header p {
+    margin: 8px 0 0;
+
+    color:
+        var(--audit-muted);
+
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   GENERAL MUI SURFACES
+========================================================= */
+
+.audit-logs-page .MuiPaper-root {
+    border:
+        1px solid
+        var(--audit-border);
+
+    background-image: none;
+
+    box-shadow:
+        var(--audit-shadow-sm);
+}
+
+.audit-logs-page .MuiCard-root {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--audit-surface),
+            var(--audit-surface-soft)
+        );
+
+    transition:
+        transform 0.32s
+        cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.32s ease,
+        border-color 0.32s ease;
+
+    animation:
+        audit-card-enter 0.55s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.audit-logs-page .MuiCard-root::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--audit-primary),
+            var(--audit-secondary),
+            var(--audit-accent)
+        );
+
+    content: "";
+}
+
+.audit-logs-page .MuiCard-root:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(15, 118, 110, 0.28);
+
+    box-shadow:
+        var(--audit-shadow-lg);
+}
+
+.audit-logs-page .MuiCardContent-root {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.audit-logs-page .audit-log-toolbar,
+.audit-logs-page .MuiToolbar-root {
+    margin-bottom: 24px;
+    padding: 20px;
+
+    border:
+        1px solid
+        var(--audit-border);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(247, 250, 252, 0.98)
+        );
+
+    box-shadow:
+        var(--audit-shadow-sm);
+
+    animation:
+        audit-toolbar-enter 0.62s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+/* =========================================================
+   TEXT FIELDS AND SELECTS
+========================================================= */
+
+.audit-logs-page .MuiOutlinedInput-root {
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    transition:
+        transform 0.23s ease,
+        box-shadow 0.23s ease,
+        background-color 0.23s ease;
+}
+
+.audit-logs-page
+.MuiOutlinedInput-root
+.MuiOutlinedInput-notchedOutline {
+    border-color:
+        rgba(11, 60, 93, 0.17);
+
+    transition:
+        border-color 0.23s ease;
+}
+
+.audit-logs-page
+.MuiOutlinedInput-root:hover
+.MuiOutlinedInput-notchedOutline {
+    border-color:
+        var(--audit-secondary-light);
+}
+
+.audit-logs-page
+.MuiOutlinedInput-root.Mui-focused {
+    transform:
+        translateY(-1px);
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(20, 184, 166, 0.12);
+}
+
+.audit-logs-page
+.MuiOutlinedInput-root.Mui-focused
+.MuiOutlinedInput-notchedOutline {
+    border-color:
+        var(--audit-secondary);
+
+    border-width: 1px;
+}
+
+.audit-logs-page
+.MuiInputLabel-root.Mui-focused {
+    color:
+        var(--audit-secondary);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.audit-logs-page .MuiButton-root {
+    min-height: 42px;
+    padding:
+        9px 17px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+    text-transform: none;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        background-color 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.audit-logs-page
+.MuiButton-containedPrimary {
+    background:
+        linear-gradient(
+            135deg,
+            var(--audit-primary),
+            var(--audit-secondary)
+        );
+
+    box-shadow:
+        0 9px 20px
+        rgba(11, 60, 93, 0.18);
+}
+
+.audit-logs-page
+.MuiButton-containedPrimary:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #105078,
+            var(--audit-secondary-light)
+        );
+
+    box-shadow:
+        0 14px 28px
+        rgba(15, 118, 110, 0.24);
+}
+
+.audit-logs-page .MuiButton-outlined {
+    border-color:
+        rgba(11, 60, 93, 0.2);
+
+    color:
+        var(--audit-primary);
+
+    background:
+        rgba(255, 255, 255, 0.9);
+}
+
+.audit-logs-page
+.MuiButton-outlined:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        var(--audit-secondary);
+
+    background:
+        rgba(209, 250, 245, 0.7);
+}
+
+.audit-logs-page
+.MuiButton-root:active {
+    transform:
+        scale(0.98);
+}
+
+/* =========================================================
+   ICON BUTTONS
+========================================================= */
+
+.audit-logs-page .MuiIconButton-root {
+    border-radius: 11px;
+
+    transition:
+        transform 0.22s ease,
+        color 0.22s ease,
+        background-color 0.22s ease;
+}
+
+.audit-logs-page
+.MuiIconButton-root:hover {
+    transform:
+        translateY(-2px)
+        scale(1.04);
+
+    color:
+        var(--audit-secondary);
+
+    background:
+        rgba(209, 250, 245, 0.78);
+}
+
+/* =========================================================
+   TABLE CONTAINER
+========================================================= */
+
+.audit-logs-page
+.MuiTableContainer-root {
+    position: relative;
+
+    overflow-x: auto;
+
+    border:
+        1px solid
+        var(--audit-border);
+
+    border-radius: 20px;
+
+    background:
+        var(--audit-surface);
+
+    box-shadow:
+        var(--audit-shadow-md);
+
+    animation:
+        audit-table-enter 0.65s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.audit-logs-page .MuiTableHead-root {
+    background:
+        linear-gradient(
+            105deg,
+            var(--audit-primary-dark),
+            var(--audit-primary),
+            var(--audit-secondary)
+        );
+}
+
+.audit-logs-page
+.MuiTableHead-root
+.MuiTableCell-root {
+    padding:
+        17px 18px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.075em;
+
+    text-transform:
+        uppercase;
+
+    white-space:
+        nowrap;
+}
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.audit-logs-page
+.MuiTableBody-root
+.MuiTableCell-root {
+    padding:
+        17px 18px;
+
+    border-bottom:
+        1px solid
+        rgba(11, 60, 93, 0.08);
+
+    color:
+        var(--audit-text);
+
+    font-size:
+        0.9rem;
+
+    vertical-align:
+        middle;
+}
+
+.audit-logs-page
+.MuiTableBody-root
+.MuiTableRow-root {
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    transition:
+        transform 0.24s ease,
+        background-color 0.24s ease,
+        box-shadow 0.24s ease;
+}
+
+.audit-logs-page
+.MuiTableBody-root
+.MuiTableRow-root:nth-of-type(even) {
+    background:
+        rgba(247, 250, 252, 0.9);
+}
+
+.audit-logs-page
+.MuiTableBody-root
+.MuiTableRow-root:hover {
+    transform:
+        translateX(2px);
+
+    background:
+        rgba(209, 250, 245, 0.62);
+
+    box-shadow:
+        inset 4px 0 0
+        var(--audit-secondary);
+}
+
+.audit-logs-page
+.MuiTableBody-root
+.MuiTableRow-root:last-child
+.MuiTableCell-root {
+    border-bottom: 0;
+}
+
+/* =========================================================
+   TABLE SORT LABEL
+========================================================= */
+
+.audit-logs-page
+.MuiTableSortLabel-root {
+    color:
+        rgba(255, 255, 255, 0.82);
+}
+
+.audit-logs-page
+.MuiTableSortLabel-root:hover,
+.audit-logs-page
+.MuiTableSortLabel-root.Mui-active {
+    color:
+        #ffffff;
+}
+
+.audit-logs-page
+.MuiTableSortLabel-icon {
+    color:
+        #ffffff !important;
+}
+
+/* =========================================================
+   CHIPS
+========================================================= */
+
+.audit-logs-page .MuiChip-root {
+    min-height:
+        28px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.74rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.02em;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.audit-logs-page
+.MuiChip-root:hover {
+    transform:
+        translateY(-2px);
+
+    filter:
+        saturate(1.08);
+
+    box-shadow:
+        0 7px 16px
+        rgba(7, 44, 68, 0.1);
+}
+
+.audit-logs-page
+.MuiChip-colorSuccess {
+    border:
+        1px solid
+        rgba(15, 118, 110, 0.18);
+
+    background:
+        #dff8f1;
+
+    color:
+        #0f766e;
+}
+
+.audit-logs-page
+.MuiChip-colorWarning {
+    border:
+        1px solid
+        rgba(209, 154, 50, 0.2);
+
+    background:
+        #fff5dd;
+
+    color:
+        #a3660c;
+}
+
+.audit-logs-page
+.MuiChip-colorError {
+    border:
+        1px solid
+        rgba(190, 51, 68, 0.18);
+
+    background:
+        #fff0f2;
+
+    color:
+        #b83246;
+}
+
+.audit-logs-page
+.MuiChip-colorInfo {
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.18);
+
+    background:
+        #eef4ff;
+
+    color:
+        #245fc2;
+}
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.audit-logs-page .MuiAlert-root {
+    align-items:
+        center;
+
+    border-radius:
+        14px;
+
+    font-weight:
+        600;
+
+    box-shadow:
+        var(--audit-shadow-sm);
+
+    animation:
+        audit-alert-enter 0.35s ease both;
+}
+
+.audit-logs-page
+.MuiAlert-standardError,
+.audit-logs-page
+.MuiAlert-outlinedError {
+    border-color:
+        rgba(220, 38, 38, 0.22);
+
+    background:
+        rgba(254, 242, 242, 0.96);
+
+    color:
+        #b91c1c;
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.audit-logs-page
+.MuiTablePagination-root {
+    border-top:
+        1px solid
+        var(--audit-border);
+
+    background:
+        var(--audit-surface-soft);
+
+    color:
+        var(--audit-muted);
+}
+
+.audit-logs-page
+.MuiTablePagination-actions
+.MuiIconButton-root {
+    color:
+        var(--audit-primary);
+}
+
+/* =========================================================
+   DIALOG
+========================================================= */
+
+.audit-log-details-dialog
+.MuiDialog-paper {
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(15, 118, 110, 0.2);
+
+    border-radius:
+        22px;
+
+    background:
+        linear-gradient(
+            150deg,
+            #ffffff,
+            #f7fbfa
+        );
+
+    box-shadow:
+        0 34px 80px
+        rgba(7, 44, 68, 0.28);
+
+    animation:
+        audit-dialog-enter 0.35s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.audit-log-details-dialog
+.MuiDialogTitle-root {
+    padding:
+        22px 24px;
+
+    background:
+        linear-gradient(
+            105deg,
+            var(--audit-primary-dark, #072c44),
+            var(--audit-primary, #0b3c5d)
+        );
+
+    color:
+        #ffffff;
+
+    font-weight:
+        800;
+}
+
+.audit-log-details-dialog
+.MuiDialogContent-root {
+    padding:
+        24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fcfb,
+            #ffffff
+        );
+}
+
+.audit-log-details-dialog
+.MuiDialogActions-root {
+    padding:
+        17px 24px;
+
+    border-top:
+        1px solid
+        rgba(11, 60, 93, 0.1);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.audit-logs-page
+.audit-empty-state {
+    padding:
+        56px 24px;
+
+    border:
+        1px dashed
+        rgba(15, 118, 110, 0.3);
+
+    border-radius:
+        20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f2fbf8
+        );
+
+    text-align:
+        center;
+
+    animation:
+        audit-empty-enter 0.5s ease both;
+}
+
+.audit-logs-page
+.audit-empty-state
+.MuiSvgIcon-root {
+    color:
+        var(--audit-secondary);
+
+    font-size:
+        52px;
+
+    animation:
+        audit-empty-float 3s
+        ease-in-out
+        infinite;
+}
+
+/* =========================================================
+   LOADING INDICATOR
+========================================================= */
+
+.audit-loading-indicator {
+    position:
+        fixed;
+
+    right:
+        24px;
+
+    bottom:
+        24px;
+
+    z-index:
+        1400;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    border:
+        1px solid
+        rgba(15, 118, 110, 0.2);
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(7, 44, 68, 0.18);
+
+    animation:
+        audit-loader-enter 0.3s ease both;
+}
+
+.audit-loading-indicator
+.MuiCircularProgress-root {
+    color:
+        var(--audit-secondary);
+}
+
+/* =========================================================
+   SCROLLBARS
+========================================================= */
+
+.audit-logs-page
+.MuiTableContainer-root::-webkit-scrollbar,
+.audit-log-details-dialog
+.MuiDialogContent-root::-webkit-scrollbar {
+    width:
+        9px;
+
+    height:
+        9px;
+}
+
+.audit-logs-page
+.MuiTableContainer-root::-webkit-scrollbar-track,
+.audit-log-details-dialog
+.MuiDialogContent-root::-webkit-scrollbar-track {
+    background:
+        #edf3f5;
+}
+
+.audit-logs-page
+.MuiTableContainer-root::-webkit-scrollbar-thumb,
+.audit-log-details-dialog
+.MuiDialogContent-root::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        #edf3f5;
+
+    border-radius:
+        999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--audit-primary),
+            var(--audit-secondary)
+        );
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.audit-logs-page
+.MuiButton-root:focus-visible,
+.audit-logs-page
+.MuiIconButton-root:focus-visible,
+.audit-logs-page
+.MuiChip-root:focus-visible {
+    outline:
+        3px solid
+        rgba(20, 184, 166, 0.24);
+
+    outline-offset:
+        3px;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes audit-page-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(14px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes audit-header-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(-16px)
+            scale(0.99);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes audit-card-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(20px)
+            scale(0.98);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes audit-toolbar-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(16px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes audit-table-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(22px)
+            scale(0.99);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes audit-dialog-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(24px)
+            scale(0.96);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes audit-alert-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateX(-10px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+@keyframes audit-empty-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(14px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes audit-empty-float {
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+}
+
+@keyframes audit-loader-enter {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(12px)
+            scale(0.9);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes audit-orbit {
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 900px) {
+    .audit-logs-page {
+        padding-top:
+            20px;
+
+        padding-bottom:
+            20px;
+    }
+
+    .audit-logs-header {
+        padding:
+            23px 24px;
+    }
+
+    .audit-logs-page
+    .MuiTable-root {
+        min-width:
+            900px;
+    }
+}
+
+@media (max-width: 600px) {
+    .audit-logs-page {
+        padding-top:
+            16px;
+
+        padding-bottom:
+            16px;
+    }
+
+    .audit-logs-page::before,
+    .audit-logs-page::after {
+        display:
+            none;
+    }
+
+    .audit-logs-header {
+        padding:
+            21px 20px;
+
+        border-radius:
+            18px;
+    }
+
+    .audit-logs-header::after {
+        display:
+            none;
+    }
+
+    .audit-logs-page
+    .MuiTableContainer-root {
+        border-radius:
+            16px;
+    }
+
+    .audit-loading-indicator {
+        right:
+            16px;
+
+        bottom:
+            16px;
+
+        width:
+            52px;
+
+        height:
+            52px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .audit-logs-page,
+    .audit-logs-header,
+    .audit-logs-page .MuiCard-root,
+    .audit-logs-page .MuiTableContainer-root,
+    .audit-log-details-dialog .MuiDialog-paper,
+    .audit-loading-indicator {
+        animation:
+            none !important;
+    }
+
+    .audit-logs-page .MuiCard-root,
+    .audit-logs-page .MuiButton-root,
+    .audit-logs-page .MuiIconButton-root,
+    .audit-logs-page .MuiChip-root,
+    .audit-logs-page
+    .MuiTableBody-root
+    .MuiTableRow-root {
+        transition:
+            none !important;
+    }
+
+    .audit-logs-page .MuiCard-root:hover,
+    .audit-logs-page .MuiButton-root:hover,
+    .audit-logs-page .MuiIconButton-root:hover,
+    .audit-logs-page .MuiChip-root:hover,
+    .audit-logs-page
+    .MuiTableBody-root
+    .MuiTableRow-root:hover {
+        transform:
+            none;
+    }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+    .audit-logs-page {
+        padding:
+            0;
+
+        animation:
+            none;
+    }
+
+    .audit-logs-page::before,
+    .audit-logs-page::after,
+    .audit-loading-indicator {
+        display:
+            none;
+    }
+
+    .audit-logs-header,
+    .audit-logs-page .MuiCard-root,
+    .audit-logs-page .MuiPaper-root,
+    .audit-logs-page .MuiTableContainer-root {
+        box-shadow:
+            none !important;
+    }
+
+    .audit-logs-page .MuiButton-root,
+    .audit-logs-page .MuiIconButton-root {
+        display:
+            none !important;
+    }
+
+    .audit-logs-page
+    .MuiTableHead-root {
+        background:
+            #e2e8f0 !important;
+    }
+
+    .audit-logs-page
+    .MuiTableHead-root
+    .MuiTableCell-root {
+        color:
+            #000000 !important;
+    }
+}

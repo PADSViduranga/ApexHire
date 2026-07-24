@@ -1,0 +1,1056 @@
+/* =========================================================
+   ApexHire - Hiring Manager Page
+   Premium Executive MUI Theme
+========================================================= */
+
+.hm-page {
+    --hm-navy-950: #0a1f33;
+    --hm-navy-900: #102f4c;
+    --hm-navy-800: #194563;
+    --hm-navy-100: #eaf1f6;
+
+    --hm-emerald-700: #176b60;
+    --hm-emerald-600: #218577;
+    --hm-emerald-500: #2ca38f;
+    --hm-emerald-100: #e9f7f3;
+
+    --hm-amber-600: #b87818;
+    --hm-amber-500: #d29a35;
+    --hm-amber-100: #fff6e5;
+
+    --hm-surface: #ffffff;
+    --hm-surface-soft: #f7fafb;
+    --hm-surface-muted: #eef4f6;
+
+    --hm-text-primary: #172638;
+    --hm-text-secondary: #667789;
+
+    --hm-border:
+        rgba(16, 47, 76, 0.12);
+
+    --hm-shadow-sm:
+        0 3px 10px rgba(10, 31, 51, 0.05),
+        0 1px 3px rgba(10, 31, 51, 0.04);
+
+    --hm-shadow-md:
+        0 14px 34px rgba(10, 31, 51, 0.09),
+        0 5px 13px rgba(23, 107, 96, 0.05);
+
+    --hm-shadow-lg:
+        0 26px 58px rgba(10, 31, 51, 0.15),
+        0 10px 24px rgba(23, 107, 96, 0.09);
+
+    position: relative;
+    isolation: isolate;
+
+    min-width: 0;
+    min-height: 100%;
+
+    padding: 32px;
+
+    animation:
+        hm-page-enter 0.58s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.hm-page::before {
+    position: absolute;
+    top: -140px;
+    right: -100px;
+    z-index: -1;
+
+    width: 360px;
+    height: 360px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(33, 133, 119, 0.11) 0%,
+            rgba(33, 133, 119, 0) 70%
+        );
+
+    content: "";
+    pointer-events: none;
+}
+
+/* =========================================================
+   PAGE TYPOGRAPHY
+========================================================= */
+
+.hm-page .MuiTypography-h4,
+.hm-page .MuiTypography-h5,
+.hm-page .MuiTypography-h6 {
+    color: var(--hm-navy-900);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+}
+
+.hm-page .MuiTypography-body1,
+.hm-page .MuiTypography-body2 {
+    color: var(--hm-text-secondary);
+    line-height: 1.65;
+}
+
+/* =========================================================
+   STATISTIC CARDS
+========================================================= */
+
+.hm-stat-card {
+    position: relative;
+
+    height: 100%;
+    min-height: 142px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--hm-border) !important;
+
+    border-radius: 20px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 1),
+            rgba(247, 251, 250, 0.98)
+        ) !important;
+
+    box-shadow:
+        var(--hm-shadow-md) !important;
+
+    transition:
+        transform 0.34s
+            cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.34s ease,
+        box-shadow 0.34s ease !important;
+}
+
+.hm-stat-card::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--hm-navy-900),
+            var(--hm-emerald-600),
+            var(--hm-amber-500)
+        );
+
+    content: "";
+}
+
+.hm-stat-card::after {
+    position: absolute;
+    top: -75px;
+    right: -70px;
+
+    width: 180px;
+    height: 180px;
+
+    border:
+        28px solid
+        rgba(33, 133, 119, 0.045);
+
+    border-radius: 50%;
+
+    content: "";
+    pointer-events: none;
+
+    transition:
+        transform 0.45s ease,
+        border-color 0.45s ease;
+}
+
+.hm-stat-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(33, 133, 119, 0.34) !important;
+
+    box-shadow:
+        var(--hm-shadow-lg) !important;
+}
+
+.hm-stat-card:hover::after {
+    transform:
+        scale(1.16)
+        rotate(12deg);
+
+    border-color:
+        rgba(210, 154, 53, 0.085);
+}
+
+.hm-stat-card .MuiCardContent-root {
+    position: relative;
+    z-index: 1;
+
+    padding: 24px !important;
+}
+
+.hm-stat-card .MuiSvgIcon-root {
+    color: var(--hm-emerald-600);
+
+    filter:
+        drop-shadow(
+            0 8px 15px
+            rgba(33, 133, 119, 0.18)
+        );
+
+    transition:
+        transform 0.32s ease,
+        color 0.32s ease;
+}
+
+.hm-stat-card:hover .MuiSvgIcon-root {
+    color: var(--hm-amber-500);
+
+    transform:
+        translateY(-2px)
+        scale(1.08)
+        rotate(-5deg);
+}
+
+/* =========================================================
+   PAPER AND PANEL SURFACES
+========================================================= */
+
+.hm-page .MuiPaper-root {
+    border:
+        1px solid
+        var(--hm-border);
+
+    background:
+        linear-gradient(
+            150deg,
+            var(--hm-surface),
+            var(--hm-surface-soft)
+        );
+
+    background-image: none;
+
+    box-shadow:
+        var(--hm-shadow-sm);
+}
+
+.hm-page > .MuiPaper-root,
+.hm-page .MuiCard-root:not(.hm-stat-card) {
+    border-radius: 20px;
+}
+
+/* =========================================================
+   TABLE CONTAINER
+========================================================= */
+
+.hm-page .MuiTableContainer-root {
+    position: relative;
+
+    overflow-x: auto;
+
+    border:
+        1px solid
+        var(--hm-border);
+
+    border-radius: 20px;
+
+    background: var(--hm-surface);
+
+    box-shadow:
+        var(--hm-shadow-md);
+
+    animation:
+        hm-content-reveal 0.55s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.hm-page .MuiTableHead-root {
+    background:
+        linear-gradient(
+            105deg,
+            var(--hm-navy-950),
+            var(--hm-navy-800)
+        );
+}
+
+.hm-page
+.MuiTableHead-root
+.MuiTableCell-root {
+    padding: 17px 18px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    color: #ffffff;
+
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.075em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.hm-page
+.MuiTableBody-root
+.MuiTableCell-root {
+    padding: 17px 18px;
+
+    border-bottom:
+        1px solid
+        rgba(16, 47, 76, 0.08);
+
+    color: var(--hm-text-primary);
+
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.hm-page
+.MuiTableBody-root
+.MuiTableRow-root {
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.hm-page
+.MuiTableBody-root
+.MuiTableRow-root:nth-of-type(even) {
+    background:
+        rgba(247, 250, 251, 0.95);
+}
+
+.hm-page
+.MuiTableBody-root
+.MuiTableRow-root:hover {
+    background:
+        var(--hm-emerald-100);
+
+    box-shadow:
+        inset 4px 0 0
+        var(--hm-emerald-600);
+
+    transform: translateX(2px);
+}
+
+.hm-page
+.MuiTableBody-root
+.MuiTableRow-root:last-child
+.MuiTableCell-root {
+    border-bottom: 0;
+}
+
+/* =========================================================
+   CHIPS
+========================================================= */
+
+.hm-page .MuiChip-root {
+    min-height: 28px;
+
+    border-radius: 999px;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        filter 0.22s ease;
+}
+
+.hm-page .MuiChip-root:hover {
+    transform: translateY(-2px);
+
+    filter: saturate(1.08);
+
+    box-shadow:
+        0 7px 16px
+        rgba(10, 31, 51, 0.1);
+}
+
+.hm-page .MuiChip-colorSuccess {
+    border:
+        1px solid
+        rgba(23, 107, 96, 0.18);
+
+    background:
+        var(--hm-emerald-100);
+
+    color: var(--hm-emerald-700);
+}
+
+.hm-page .MuiChip-colorWarning {
+    border:
+        1px solid
+        rgba(184, 120, 24, 0.2);
+
+    background:
+        var(--hm-amber-100);
+
+    color: var(--hm-amber-600);
+}
+
+.hm-page .MuiChip-colorError {
+    border:
+        1px solid
+        rgba(190, 51, 68, 0.18);
+
+    background: #fff0f2;
+
+    color: #b83246;
+}
+
+.hm-page .MuiChip-colorInfo {
+    border:
+        1px solid
+        rgba(36, 99, 166, 0.18);
+
+    background: #edf4ff;
+
+    color: #2463a6;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.hm-page .MuiButton-root {
+    min-height: 42px;
+    padding: 9px 17px;
+
+    border-radius: 12px;
+
+    font-size: 0.86rem;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    text-transform: none;
+
+    transition:
+        transform 0.24s ease,
+        box-shadow 0.24s ease,
+        border-color 0.24s ease,
+        background-color 0.24s ease;
+}
+
+.hm-page .MuiButton-containedPrimary {
+    background:
+        linear-gradient(
+            135deg,
+            var(--hm-navy-900),
+            var(--hm-emerald-600)
+        );
+
+    box-shadow:
+        0 9px 20px
+        rgba(16, 47, 76, 0.18);
+}
+
+.hm-page .MuiButton-containedPrimary:hover {
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--hm-navy-800),
+            var(--hm-emerald-500)
+        );
+
+    box-shadow:
+        0 14px 28px
+        rgba(33, 133, 119, 0.23);
+}
+
+.hm-page .MuiButton-outlined {
+    border-color:
+        rgba(16, 47, 76, 0.2);
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    color: var(--hm-navy-900);
+}
+
+.hm-page .MuiButton-outlined:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        var(--hm-emerald-600);
+
+    background:
+        var(--hm-emerald-100);
+}
+
+.hm-page .MuiButton-root:active {
+    transform:
+        translateY(0)
+        scale(0.98);
+}
+
+/* =========================================================
+   ICON BUTTONS
+========================================================= */
+
+.hm-page .MuiIconButton-root {
+    border-radius: 11px;
+
+    transition:
+        transform 0.22s ease,
+        background-color 0.22s ease,
+        color 0.22s ease;
+}
+
+.hm-page .MuiIconButton-root:hover {
+    transform:
+        translateY(-2px)
+        scale(1.04);
+
+    background:
+        var(--hm-emerald-100);
+
+    color: var(--hm-emerald-700);
+}
+
+/* =========================================================
+   FORM CONTROLS
+========================================================= */
+
+.hm-page .MuiOutlinedInput-root {
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    transition:
+        box-shadow 0.24s ease,
+        background-color 0.24s ease,
+        transform 0.24s ease;
+}
+
+.hm-page
+.MuiOutlinedInput-root
+.MuiOutlinedInput-notchedOutline {
+    border-color:
+        rgba(16, 47, 76, 0.17);
+
+    transition:
+        border-color 0.24s ease;
+}
+
+.hm-page .MuiOutlinedInput-root:hover {
+    background: #ffffff;
+}
+
+.hm-page
+.MuiOutlinedInput-root:hover
+.MuiOutlinedInput-notchedOutline {
+    border-color:
+        var(--hm-emerald-500);
+}
+
+.hm-page .MuiOutlinedInput-root.Mui-focused {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(33, 133, 119, 0.13);
+}
+
+.hm-page
+.MuiOutlinedInput-root.Mui-focused
+.MuiOutlinedInput-notchedOutline {
+    border-color:
+        var(--hm-emerald-600);
+
+    border-width: 1px;
+}
+
+.hm-page .MuiInputLabel-root.Mui-focused {
+    color: var(--hm-emerald-700);
+}
+
+/* =========================================================
+   DIALOG
+========================================================= */
+
+.hm-page .MuiDialog-paper {
+    max-height: calc(100vh - 48px);
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(33, 133, 119, 0.2);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            150deg,
+            #ffffff,
+            #f7fbfa
+        );
+
+    box-shadow:
+        0 32px 76px
+        rgba(10, 31, 51, 0.28),
+        0 12px 30px
+        rgba(33, 133, 119, 0.11);
+
+    animation:
+        hm-dialog-enter 0.34s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.hm-page .MuiDialogTitle-root {
+    padding: 22px 24px;
+
+    border-bottom:
+        1px solid
+        var(--hm-border);
+
+    background:
+        linear-gradient(
+            105deg,
+            var(--hm-navy-950),
+            var(--hm-navy-800)
+        );
+
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.hm-page .MuiDialogContent-root {
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fcfb,
+            #ffffff
+        );
+}
+
+.hm-page .MuiDialogActions-root {
+    padding: 17px 24px;
+
+    border-top:
+        1px solid
+        var(--hm-border);
+
+    background:
+        rgba(255, 255, 255, 0.96);
+}
+
+/* =========================================================
+   RATING
+========================================================= */
+
+.hm-page .MuiRating-root {
+    vertical-align: middle;
+}
+
+.hm-page
+.MuiRating-root
+.MuiRating-iconFilled {
+    color: var(--hm-amber-500);
+
+    filter:
+        drop-shadow(
+            0 3px 6px
+            rgba(210, 154, 53, 0.22)
+        );
+}
+
+.hm-page
+.MuiRating-root
+.MuiRating-iconHover {
+    color: #e2ad47;
+
+    transform: scale(1.1);
+}
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.hm-page .MuiAlert-root {
+    align-items: center;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    box-shadow:
+        var(--hm-shadow-sm);
+}
+
+.hm-page .MuiAlert-standardSuccess {
+    border:
+        1px solid
+        rgba(23, 107, 96, 0.2);
+
+    background:
+        var(--hm-emerald-100);
+
+    color: var(--hm-emerald-700);
+}
+
+.hm-page .MuiAlert-standardError {
+    border:
+        1px solid
+        rgba(190, 51, 68, 0.2);
+
+    background: #fff0f2;
+
+    color: #b83246;
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.hm-page .MuiTablePagination-root {
+    border-top:
+        1px solid
+        var(--hm-border);
+
+    background:
+        var(--hm-surface-soft);
+
+    color: var(--hm-text-secondary);
+}
+
+.hm-page
+.MuiTablePagination-actions
+.MuiIconButton-root {
+    color: var(--hm-navy-900);
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.hm-page .MuiLinearProgress-root {
+    height: 8px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(16, 47, 76, 0.1);
+}
+
+.hm-page .MuiLinearProgress-bar {
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--hm-navy-900),
+            var(--hm-emerald-500),
+            var(--hm-amber-500)
+        );
+}
+
+/* =========================================================
+   SCROLLBARS
+========================================================= */
+
+.hm-page
+.MuiTableContainer-root::-webkit-scrollbar,
+.hm-page
+.MuiDialogContent-root::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+.hm-page
+.MuiTableContainer-root::-webkit-scrollbar-track,
+.hm-page
+.MuiDialogContent-root::-webkit-scrollbar-track {
+    background: var(--hm-surface-muted);
+}
+
+.hm-page
+.MuiTableContainer-root::-webkit-scrollbar-thumb,
+.hm-page
+.MuiDialogContent-root::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        var(--hm-surface-muted);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--hm-navy-800),
+            var(--hm-emerald-600)
+        );
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.hm-page
+.MuiButton-root:focus-visible,
+.hm-page
+.MuiIconButton-root:focus-visible,
+.hm-page
+.MuiChip-root:focus-visible {
+    outline:
+        3px solid
+        rgba(33, 133, 119, 0.24);
+
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.hm-stat-card,
+.hm-page .MuiTableContainer-root {
+    animation:
+        hm-content-reveal 0.56s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.hm-stat-card:nth-of-type(1) {
+    animation-delay: 0.04s;
+}
+
+.hm-stat-card:nth-of-type(2) {
+    animation-delay: 0.09s;
+}
+
+.hm-stat-card:nth-of-type(3) {
+    animation-delay: 0.14s;
+}
+
+.hm-stat-card:nth-of-type(4) {
+    animation-delay: 0.19s;
+}
+
+@keyframes hm-page-enter {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes hm-content-reveal {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes hm-dialog-enter {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(22px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 900px) {
+    .hm-page {
+        padding: 20px;
+    }
+
+    .hm-page .MuiTable-root {
+        min-width: 850px;
+    }
+
+    .hm-stat-card .MuiCardContent-root {
+        padding: 20px !important;
+    }
+
+    .hm-page .MuiDialog-paper {
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 600px) {
+    .hm-page {
+        padding: 15px;
+    }
+
+    .hm-page::before {
+        display: none;
+    }
+
+    .hm-stat-card {
+        min-height: 128px;
+
+        border-radius: 17px !important;
+    }
+
+    .hm-page .MuiTableContainer-root {
+        border-radius: 16px;
+    }
+
+    .hm-page .MuiDialog-paper {
+        margin: 12px;
+        width: calc(100% - 24px);
+
+        border-radius: 18px;
+    }
+
+    .hm-page .MuiDialogTitle-root,
+    .hm-page .MuiDialogContent-root,
+    .hm-page .MuiDialogActions-root {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .hm-page .MuiDialogActions-root {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hm-page
+    .MuiDialogActions-root
+    .MuiButton-root {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .hm-page,
+    .hm-stat-card,
+    .hm-page .MuiTableContainer-root,
+    .hm-page .MuiDialog-paper {
+        animation: none !important;
+    }
+
+    .hm-stat-card,
+    .hm-page .MuiButton-root,
+    .hm-page .MuiIconButton-root,
+    .hm-page .MuiChip-root,
+    .hm-page
+    .MuiTableBody-root
+    .MuiTableRow-root {
+        transition: none !important;
+    }
+
+    .hm-stat-card:hover,
+    .hm-page .MuiButton-root:hover,
+    .hm-page .MuiIconButton-root:hover,
+    .hm-page .MuiChip-root:hover,
+    .hm-page
+    .MuiTableBody-root
+    .MuiTableRow-root:hover {
+        transform: none;
+    }
+}
+
+/* =========================================================
+   PRINT SUPPORT
+========================================================= */
+
+@media print {
+    .hm-page {
+        padding: 0;
+        animation: none;
+    }
+
+    .hm-page::before {
+        display: none;
+    }
+
+    .hm-stat-card,
+    .hm-page .MuiPaper-root,
+    .hm-page .MuiTableContainer-root {
+        box-shadow: none !important;
+    }
+
+    .hm-page .MuiButton-root,
+    .hm-page .MuiIconButton-root {
+        display: none !important;
+    }
+
+    .hm-page .MuiTable-root {
+        min-width: 0;
+    }
+
+    .hm-page .MuiTableHead-root {
+        background: #e2e8f0 !important;
+    }
+
+    .hm-page
+    .MuiTableHead-root
+    .MuiTableCell-root {
+        color: #000000 !important;
+    }
+}

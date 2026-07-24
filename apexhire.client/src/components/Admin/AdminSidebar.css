@@ -1,0 +1,606 @@
+﻿:root {
+    --condo-maroon: #74001b;
+    --condo-maroon-dark: #43000f;
+    --condo-maroon-deep: #260008;
+    --condo-yellow: #ffc400;
+    --condo-yellow-light: #ffe168;
+    --condo-blue: #005baa;
+    --condo-blue-dark: #003f78;
+    --condo-white: #ffffff;
+    --condo-white-soft: #fff9f0;
+}
+
+.condo-admin-sidebar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--condo-white);
+    background:
+        radial-gradient(
+            circle at 18% 10%,
+            rgba(255, 196, 0, 0.17),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 75%,
+            rgba(0, 91, 170, 0.35),
+            transparent 36%
+        ),
+        linear-gradient(
+            160deg,
+            var(--condo-maroon-deep) 0%,
+            var(--condo-maroon-dark) 40%,
+            var(--condo-maroon) 72%,
+            var(--condo-blue-dark) 135%
+        );
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+        18px 0 50px rgba(67, 0, 15, 0.28),
+        inset -1px 0 rgba(255, 196, 0, 0.15);
+    animation: condoSidebarEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.condo-admin-sidebar::before {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    content: "";
+    pointer-events: none;
+    opacity: 0.24;
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        );
+    background-size: 34px 34px;
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9),
+        transparent
+    );
+}
+
+.condo-admin-sidebar::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 3px;
+    content: "";
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--condo-yellow) 20%,
+        var(--condo-blue) 55%,
+        var(--condo-yellow) 82%,
+        transparent 100%
+    );
+    box-shadow: 0 0 22px rgba(255, 196, 0, 0.45);
+    animation: condoBorderGlow 4s ease-in-out infinite;
+}
+
+.condo-sidebar-decoration {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(4px);
+}
+
+.condo-sidebar-decoration-one {
+    top: -90px;
+    right: -95px;
+    width: 210px;
+    height: 210px;
+    border: 2px solid rgba(255, 196, 0, 0.2);
+    box-shadow:
+        0 0 0 25px rgba(255, 196, 0, 0.03),
+        0 0 0 50px rgba(255, 196, 0, 0.02);
+    animation: condoDecorationFloat 10s ease-in-out infinite;
+}
+
+.condo-sidebar-decoration-two {
+    right: -85px;
+    bottom: 80px;
+    width: 175px;
+    height: 175px;
+    background: rgba(0, 91, 170, 0.2);
+    box-shadow: 0 0 80px rgba(0, 91, 170, 0.5);
+    animation: condoDecorationFloat 12s ease-in-out infinite reverse;
+}
+
+.condo-sidebar-brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 110px;
+    padding: 24px 22px 20px;
+}
+
+.condo-brand-logo {
+    position: relative;
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 17px;
+    background:
+        linear-gradient(
+            145deg,
+            var(--condo-yellow),
+            var(--condo-yellow-light)
+        );
+    box-shadow:
+        0 12px 28px rgba(255, 196, 0, 0.22),
+        inset 0 1px rgba(255, 255, 255, 0.7);
+    transform: rotate(-4deg);
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s ease;
+}
+
+.condo-sidebar-brand:hover .condo-brand-logo {
+    transform: rotate(0deg) scale(1.07);
+    box-shadow:
+        0 18px 36px rgba(255, 196, 0, 0.34),
+        inset 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.condo-brand-logo::before {
+    position: absolute;
+    top: -50%;
+    left: -90%;
+    width: 46%;
+    height: 200%;
+    content: "";
+    background: rgba(255, 255, 255, 0.5);
+    transform: rotate(25deg);
+    animation: condoLogoShine 5s ease-in-out infinite;
+}
+
+.condo-brand-logo-a,
+.condo-brand-logo-h {
+    position: absolute;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.condo-brand-logo-a {
+    top: 10px;
+    left: 10px;
+    color: var(--condo-maroon);
+}
+
+.condo-brand-logo-h {
+    right: 9px;
+    bottom: 9px;
+    color: var(--condo-blue);
+}
+
+.condo-brand-content {
+    min-width: 0;
+}
+
+.condo-brand-title.MuiTypography-root {
+    margin: 0;
+    color: var(--condo-white);
+    font-size: 25px;
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.7px;
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.condo-brand-subtitle.MuiTypography-root {
+    margin-top: 7px;
+    color: var(--condo-yellow-light);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.condo-sidebar-divider.MuiDivider-root {
+    margin: 0 20px;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.condo-sidebar-section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 22px 22px 8px;
+}
+
+.condo-sidebar-section-label span {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.condo-sidebar-section-label div {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        rgba(255, 196, 0, 0.45),
+        transparent
+    );
+}
+
+.condo-sidebar-menu.MuiList-root {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 5px 13px 22px;
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(255, 196, 0, 0.4)
+        transparent;
+}
+
+.condo-sidebar-menu::-webkit-scrollbar {
+    width: 5px;
+}
+
+.condo-sidebar-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.condo-sidebar-menu::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgba(255, 196, 0, 0.38);
+}
+
+.condo-sidebar-menu-item.MuiListItemButton-root {
+    position: relative;
+    min-height: 52px;
+    padding: 10px 12px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.72);
+    border: 1px solid transparent;
+    border-radius: 14px;
+    animation:
+        condoMenuReveal 0.65s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+    animation-delay: calc(var(--menu-index) * 55ms);
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.condo-sidebar-menu-item.MuiListItemButton-root::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: "";
+    opacity: 0;
+    background: linear-gradient(
+        110deg,
+        rgba(255, 255, 255, 0.12),
+        rgba(255, 196, 0, 0.08),
+        rgba(0, 91, 170, 0.12)
+    );
+    transform: translateX(-25%);
+    transition:
+        opacity 0.35s ease,
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.condo-sidebar-menu-item.MuiListItemButton-root:hover {
+    color: var(--condo-white);
+    border-color: rgba(255, 196, 0, 0.24);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 10px 24px rgba(38, 0, 8, 0.22);
+    transform: translateX(5px);
+}
+
+.condo-sidebar-menu-item.MuiListItemButton-root:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.condo-sidebar-menu-item.MuiListItemButton-root.active {
+    color: var(--condo-maroon-dark);
+    border-color: rgba(255, 255, 255, 0.45);
+    background:
+        linear-gradient(
+            105deg,
+            var(--condo-yellow) 0%,
+            var(--condo-yellow-light) 100%
+        );
+    box-shadow:
+        0 12px 28px rgba(255, 196, 0, 0.25),
+        inset 0 1px rgba(255, 255, 255, 0.75);
+    transform: translateX(4px);
+}
+
+.condo-sidebar-menu-item.MuiListItemButton-root.active::after {
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    content: "";
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.55),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: condoActiveShine 3.5s ease-in-out infinite;
+}
+
+.condo-menu-active-indicator {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 4px;
+    height: 0;
+    border-radius: 0 8px 8px 0;
+    background: var(--condo-blue);
+    box-shadow: 0 0 15px rgba(0, 91, 170, 0.6);
+    transform: translateY(-50%);
+    transition: height 0.3s ease;
+}
+
+.condo-sidebar-menu-item.active
+.condo-menu-active-indicator {
+    height: 29px;
+}
+
+.condo-sidebar-menu-icon.MuiListItemIcon-root {
+    min-width: 42px;
+    color: var(--condo-yellow);
+    transition:
+        color 0.3s ease,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.condo-sidebar-menu-icon .MuiSvgIcon-root {
+    font-size: 22px;
+}
+
+.condo-sidebar-menu-item:hover
+.condo-sidebar-menu-icon {
+    color: var(--condo-yellow-light);
+    transform: scale(1.12) rotate(-5deg);
+}
+
+.condo-sidebar-menu-item.active
+.condo-sidebar-menu-icon {
+    color: var(--condo-blue);
+    transform: scale(1.08);
+}
+
+.condo-sidebar-menu-text .MuiListItemText-primary {
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: 0.1px;
+}
+
+.condo-menu-arrow {
+    margin-right: 3px;
+    font-size: 23px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.condo-sidebar-menu-item:hover
+.condo-menu-arrow,
+.condo-sidebar-menu-item.active
+.condo-menu-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.condo-sidebar-menu-item.active
+.condo-menu-arrow {
+    color: var(--condo-blue);
+}
+
+.condo-sidebar-footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 12px 15px 18px;
+    padding: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 196, 0, 0.2);
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            130deg,
+            rgba(255, 255, 255, 0.09),
+            rgba(0, 91, 170, 0.14)
+        );
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.condo-sidebar-footer::before {
+    position: absolute;
+    top: -30px;
+    right: -25px;
+    width: 75px;
+    height: 75px;
+    content: "";
+    border-radius: 50%;
+    background: rgba(255, 196, 0, 0.11);
+}
+
+.condo-sidebar-footer-icon {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    color: var(--condo-maroon-dark);
+    border-radius: 12px;
+    background: var(--condo-yellow);
+    box-shadow: 0 8px 20px rgba(255, 196, 0, 0.18);
+}
+
+.condo-sidebar-footer-icon .MuiSvgIcon-root {
+    font-size: 19px;
+}
+
+.condo-sidebar-footer-title.MuiTypography-root {
+    color: var(--condo-white);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.condo-sidebar-footer-text.MuiTypography-root {
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+@keyframes condoSidebarEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes condoMenuReveal {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes condoLogoShine {
+    0%,
+    55% {
+        left: -90%;
+    }
+
+    75%,
+    100% {
+        left: 140%;
+    }
+}
+
+@keyframes condoActiveShine {
+    0%,
+    45% {
+        left: -60%;
+    }
+
+    75%,
+    100% {
+        left: 135%;
+    }
+}
+
+@keyframes condoDecorationFloat {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(-16px, 20px, 0) scale(1.08);
+    }
+}
+
+@keyframes condoBorderGlow {
+    0%,
+    100% {
+        opacity: 0.45;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.35);
+    }
+}
+
+@media (max-width: 1024px) {
+    .condo-admin-sidebar {
+        width: 250px !important;
+        min-width: 250px !important;
+    }
+
+    .condo-sidebar-brand {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .condo-brand-title.MuiTypography-root {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .condo-admin-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1300;
+        width: 280px !important;
+        min-width: 280px !important;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .condo-admin-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .condo-admin-sidebar,
+    .condo-sidebar-menu-item,
+    .condo-brand-logo,
+    .condo-sidebar-decoration,
+    .condo-admin-sidebar::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

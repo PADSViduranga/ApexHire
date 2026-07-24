@@ -1,0 +1,1631 @@
+/* ==========================================================
+   ApexHire Hiring Manager Applications
+   Enterprise Premium Theme - Part 1
+========================================================== */
+
+:root{
+    --hm-primary:#083358;
+    --hm-primary-light:#0F5B8D;
+    --hm-primary-soft:#EAF4FB;
+
+    --hm-secondary:#0D9488;
+    --hm-secondary-light:#14B8A6;
+
+    --hm-accent:#D4A017;
+    --hm-accent-light:#F6E7B0;
+
+    --hm-bg:#F6F9FC;
+    --hm-surface:#FFFFFF;
+    --hm-surface-hover:#FCFEFF;
+
+    --hm-text:#1E293B;
+    --hm-text-light:#64748B;
+
+    --hm-border:#DCE7EF;
+
+    --hm-shadow-sm:
+        0 4px 10px rgba(8,51,88,.05);
+
+    --hm-shadow:
+        0 12px 30px rgba(8,51,88,.08);
+
+    --hm-shadow-lg:
+        0 25px 60px rgba(8,51,88,.15);
+
+    --hm-radius:18px;
+}
+
+/* ========================================================== */
+
+.hm-applications-page{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    width:100%;
+    padding:6px;
+    animation:hmFade .6s ease;
+}
+
+/* ========================================================== */
+
+.hm-page-header,
+.hm-panel-header,
+.hm-modal-header,
+.hm-modal-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+}
+
+.hm-page-header h1,
+.hm-panel-header h2,
+.hm-modal-header h2{
+    margin:0;
+    color:var(--hm-primary);
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.hm-page-eyebrow{
+    margin-bottom:8px;
+    color:var(--hm-secondary);
+    font-size:.78rem;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+.hm-page-description,
+.hm-panel-header p,
+.hm-modal-header p,
+.hm-secondary-text{
+    color:var(--hm-text-light);
+    line-height:1.6;
+}
+
+/* ==========================================================
+   Buttons
+========================================================== */
+
+.hm-refresh-button,
+.hm-primary-button,
+.hm-secondary-button,
+.hm-clear-filter-button,
+.hm-alert-retry,
+.hm-icon-button{
+
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    font:inherit;
+    font-weight:700;
+    transition:.35s;
+    padding:11px 18px;
+}
+
+/* Primary */
+
+.hm-refresh-button,
+.hm-primary-button{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--hm-primary),
+            var(--hm-secondary)
+        );
+
+    color:white;
+
+    box-shadow:
+        0 10px 24px
+        rgba(13,148,136,.20);
+}
+
+.hm-refresh-button:hover,
+.hm-primary-button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 18px 38px
+        rgba(13,148,136,.28);
+}
+
+/* Secondary */
+
+.hm-secondary-button,
+.hm-clear-filter-button,
+.hm-icon-button{
+
+    background:white;
+
+    color:var(--hm-primary);
+
+    border:1px solid var(--hm-border);
+}
+
+.hm-secondary-button:hover,
+.hm-clear-filter-button:hover,
+.hm-icon-button:hover{
+
+    background:var(--hm-primary-soft);
+
+    border-color:var(--hm-secondary);
+
+    transform:translateY(-2px);
+}
+
+button:disabled,
+select:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.55;
+}
+
+/* ==========================================================
+   Alerts
+========================================================== */
+
+.hm-alert{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-radius:18px;
+
+    padding:18px 20px;
+
+    box-shadow:var(--hm-shadow-sm);
+}
+
+.hm-alert p{
+
+    margin-top:5px;
+
+    margin-bottom:0;
+}
+
+.hm-alert-success{
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(13,148,136,.12),
+            rgba(20,184,166,.08)
+        );
+
+    border-left:5px solid var(--hm-secondary);
+}
+
+.hm-alert-error{
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(239,68,68,.10),
+            rgba(239,68,68,.04)
+        );
+
+    border-left:5px solid #EF4444;
+}
+
+.hm-alert-close{
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:1.4rem;
+
+    transition:.25s;
+}
+
+.hm-alert-close:hover{
+
+    transform:rotate(90deg);
+}
+
+/* ==========================================================
+   Statistics Cards
+========================================================== */
+
+.hm-statistics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+}
+
+.hm-stat-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    padding:24px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #ffffff,
+            #f8fcff
+        );
+
+    border:1px solid var(--hm-border);
+
+    box-shadow:var(--hm-shadow);
+
+    transition:.4s;
+}
+
+.hm-stat-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--hm-primary),
+            var(--hm-secondary),
+            var(--hm-accent)
+        );
+}
+
+.hm-stat-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-60px;
+
+    top:-60px;
+
+    width:160px;
+
+    height:160px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            rgba(13,148,136,.08),
+            transparent 70%
+        );
+
+    transition:.4s;
+}
+
+.hm-stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--hm-shadow-lg);
+}
+
+.hm-stat-card:hover::after{
+
+    transform:scale(1.2);
+}
+
+.hm-stat-label{
+
+    color:var(--hm-text-light);
+
+    font-size:.92rem;
+
+    font-weight:600;
+}
+
+.hm-stat-value{
+
+    color:var(--hm-primary);
+
+    font-size:2.1rem;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+}
+
+/* ========================================================== */
+
+.hm-panel{
+
+    background:white;
+
+    border:1px solid var(--hm-border);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    box-shadow:var(--hm-shadow);
+}
+
+/* ========================================================== */
+
+@keyframes hmFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+    }
+}
+/* ==========================================================
+   FILTERS & FORMS
+========================================================== */
+
+.hm-filter-grid,
+.hm-form-grid,
+.hm-details-grid{
+    display:grid;
+    gap:20px;
+}
+
+.hm-filter-grid{
+    grid-template-columns:2fr 1fr 1fr;
+    margin-top:22px;
+}
+
+.hm-form-grid,
+.hm-details-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.hm-form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.hm-form-group-full{
+    grid-column:1 / -1;
+}
+
+.hm-form-group label{
+    font-size:.9rem;
+    font-weight:700;
+    color:var(--hm-primary);
+    margin-bottom:2px;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.hm-form-group input,
+.hm-form-group select,
+.hm-form-group textarea,
+.hm-status-select{
+
+    width:100%;
+
+    background:#ffffff;
+
+    color:var(--hm-text);
+
+    border:1px solid var(--hm-border);
+
+    border-radius:14px;
+
+    padding:13px 15px;
+
+    font:inherit;
+
+    transition:
+        border-color .30s,
+        box-shadow .30s,
+        transform .25s,
+        background .30s;
+}
+
+.hm-form-group textarea{
+    resize:vertical;
+    min-height:130px;
+}
+
+.hm-form-group input::placeholder,
+.hm-form-group textarea::placeholder{
+    color:#94A3B8;
+}
+
+.hm-form-group input:hover,
+.hm-form-group textarea:hover,
+.hm-form-group select:hover,
+.hm-status-select:hover{
+
+    border-color:var(--hm-secondary);
+}
+
+.hm-form-group input:focus,
+.hm-form-group textarea:focus,
+.hm-form-group select:focus,
+.hm-status-select:focus{
+
+    outline:none;
+
+    background:#FCFEFF;
+
+    border-color:var(--hm-secondary);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(13,148,136,.14);
+
+    transform:translateY(-1px);
+}
+
+/* ==========================================================
+   TABLE WRAPPER
+========================================================== */
+
+.hm-table-wrapper{
+
+    margin-top:24px;
+
+    overflow-x:auto;
+
+    border-radius:20px;
+
+    border:1px solid var(--hm-border);
+
+    background:white;
+
+    box-shadow:var(--hm-shadow);
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.hm-applications-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:950px;
+}
+
+.hm-applications-table thead{
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--hm-primary),
+            var(--hm-secondary)
+        );
+
+    color:white;
+}
+
+.hm-applications-table th{
+
+    padding:18px 18px;
+
+    font-size:.82rem;
+
+    letter-spacing:.08em;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    white-space:nowrap;
+}
+
+.hm-applications-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #EEF2F7;
+
+    color:var(--hm-text);
+
+    transition:.25s;
+}
+
+.hm-applications-table tbody tr{
+
+    transition:
+        background .30s,
+        transform .25s;
+}
+
+.hm-applications-table tbody tr:nth-child(even){
+
+    background:#FBFDFF;
+}
+
+.hm-applications-table tbody tr:hover{
+
+    background:#EDF8F7;
+
+    transform:scale(1.003);
+}
+
+/* ==========================================================
+   CANDIDATE
+========================================================== */
+
+.hm-candidate-cell{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+}
+
+.hm-candidate-cell>div:last-child{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+}
+
+.hm-candidate-cell strong{
+
+    color:var(--hm-primary);
+
+    font-size:.96rem;
+}
+
+.hm-candidate-cell span{
+
+    color:var(--hm-text-light);
+
+    font-size:.84rem;
+}
+
+/* ==========================================================
+   AVATAR
+========================================================== */
+
+.hm-candidate-avatar{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    font-weight:800;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--hm-primary),
+            var(--hm-secondary)
+        );
+
+    box-shadow:
+        0 10px 22px
+        rgba(13,148,136,.20);
+
+    transition:.35s;
+}
+
+.hm-applications-table tr:hover
+.hm-candidate-avatar{
+
+    transform:rotate(-8deg)
+              scale(1.08);
+}
+
+/* ==========================================================
+   STATUS BADGES
+========================================================== */
+
+.hm-status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:125px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:.76rem;
+
+    font-weight:700;
+
+    letter-spacing:.04em;
+
+    transition:.30s;
+}
+
+.hm-status-submitted,
+.hm-status-underreview{
+
+    background:#EAF4FB;
+
+    color:#0F5B8D;
+
+    border:1px solid rgba(15,91,141,.20);
+}
+
+.hm-status-shortlisted,
+.hm-status-interviewscheduled{
+
+    background:#FFF8E6;
+
+    color:#C28A18;
+
+    border:1px solid rgba(194,138,24,.25);
+}
+
+.hm-status-offered,
+.hm-status-hired{
+
+    background:#EAFBF8;
+
+    color:#0D9488;
+
+    border:1px solid rgba(13,148,136,.25);
+}
+
+.hm-status-rejected{
+
+    background:#FFF1F1;
+
+    color:#DC2626;
+
+    border:1px solid rgba(220,38,38,.22);
+}
+
+.hm-status-badge:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(0,0,0,.08);
+}
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.hm-table-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.hm-icon-button{
+
+    width:42px;
+
+    height:42px;
+
+    padding:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+}
+
+.hm-icon-button:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--hm-primary-soft),
+            #ffffff
+        );
+
+    transform:translateY(-3px);
+}
+
+.hm-status-select{
+
+    min-width:170px;
+}
+/* ==========================================================
+   STATES, LOADING & EMPTY CONTENT
+========================================================== */
+
+.hm-state {
+    padding: 56px 24px;
+    text-align: center;
+    color: var(--hm-text-light);
+}
+
+.hm-state h3 {
+    margin: 0 0 8px;
+    color: var(--hm-primary);
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.hm-state p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.hm-loading-spinner {
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 16px;
+    border: 4px solid rgba(13, 148, 136, 0.14);
+    border-top-color: var(--hm-secondary);
+    border-radius: 50%;
+    animation: hmSpin 0.75s linear infinite;
+    box-shadow:
+        0 0 0 6px rgba(13, 148, 136, 0.04);
+}
+
+@keyframes hmSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================
+   MODAL OVERLAY
+========================================================== */
+
+.hm-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            rgba(4, 24, 38, 0.82),
+            rgba(8, 51, 88, 0.72)
+        );
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    animation: hmOverlayIn 0.25s ease both;
+}
+
+/* ==========================================================
+   MODAL
+========================================================== */
+
+.hm-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 780px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    border: 1px solid rgba(13, 148, 136, 0.18);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #ffffff 0%,
+            #f8fcff 100%
+        );
+
+    box-shadow:
+        0 34px 80px rgba(4, 24, 38, 0.30),
+        0 12px 30px rgba(13, 148, 136, 0.12);
+
+    animation: hmModalIn 0.36s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hm-modal::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    content: "";
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--hm-primary),
+            var(--hm-secondary),
+            var(--hm-accent)
+        );
+}
+
+/* ==========================================================
+   MODAL SECTIONS
+========================================================== */
+
+.hm-modal-header,
+.hm-modal-body,
+.hm-modal-footer {
+    padding: 22px 24px;
+}
+
+.hm-modal-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    border-bottom: 1px solid var(--hm-border);
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.hm-modal-header h2 {
+    color: var(--hm-primary);
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.hm-modal-header p {
+    margin: 6px 0 0;
+}
+
+.hm-modal-body {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(248, 252, 255, 0.55),
+            rgba(255, 255, 255, 0.96)
+        );
+}
+
+.hm-modal-footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+
+    justify-content: flex-end;
+
+    border-top: 1px solid var(--hm-border);
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* ==========================================================
+   MODAL CLOSE BUTTON
+========================================================== */
+
+.hm-modal-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    border: 1px solid var(--hm-border);
+    border-radius: 13px;
+
+    background: #ffffff;
+    color: var(--hm-primary);
+
+    cursor: pointer;
+    font-size: 1.45rem;
+    line-height: 1;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hm-modal-close:hover {
+    transform: rotate(90deg);
+
+    border-color: rgba(220, 38, 38, 0.35);
+
+    background: #fff1f1;
+    color: #dc2626;
+
+    box-shadow:
+        0 8px 20px rgba(220, 38, 38, 0.12);
+}
+
+/* ==========================================================
+   DETAILS GRID
+========================================================== */
+
+.hm-details-grid > div {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    min-height: 88px;
+    padding: 15px 16px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--hm-border);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f6fbfd
+        );
+
+    box-shadow:
+        0 6px 18px rgba(8, 51, 88, 0.05);
+
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.hm-details-grid > div::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 100%;
+
+    content: "";
+
+    background:
+        linear-gradient(
+            var(--hm-primary),
+            var(--hm-secondary)
+        );
+}
+
+.hm-details-grid > div:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(13, 148, 136, 0.34);
+
+    box-shadow:
+        0 14px 30px rgba(8, 51, 88, 0.09);
+}
+
+.hm-details-grid span {
+    color: var(--hm-text-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.hm-details-grid strong {
+    color: var(--hm-primary);
+    font-size: 0.98rem;
+    line-height: 1.45;
+}
+
+/* ==========================================================
+   DETAIL SECTIONS
+========================================================== */
+
+.hm-detail-section {
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid var(--hm-border);
+}
+
+.hm-detail-section:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.hm-detail-section h3 {
+    position: relative;
+
+    margin: 0 0 12px;
+    padding-left: 14px;
+
+    color: var(--hm-primary);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.hm-detail-section h3::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 4px;
+    height: 18px;
+
+    border-radius: 999px;
+
+    content: "";
+    transform: translateY(-50%);
+
+    background:
+        linear-gradient(
+            var(--hm-secondary),
+            var(--hm-accent)
+        );
+}
+
+.hm-detail-section p {
+    margin: 0;
+
+    color: var(--hm-text);
+    line-height: 1.75;
+}
+
+/* ==========================================================
+   SCROLLBARS
+========================================================== */
+
+.hm-table-wrapper::-webkit-scrollbar,
+.hm-modal::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+.hm-table-wrapper::-webkit-scrollbar-track,
+.hm-modal::-webkit-scrollbar-track {
+    background: #edf4f7;
+}
+
+.hm-table-wrapper::-webkit-scrollbar-thumb,
+.hm-modal::-webkit-scrollbar-thumb {
+    border: 2px solid #edf4f7;
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            var(--hm-primary),
+            var(--hm-secondary)
+        );
+}
+
+.hm-table-wrapper::-webkit-scrollbar-thumb:hover,
+.hm-modal::-webkit-scrollbar-thumb:hover {
+    background:
+        linear-gradient(
+            var(--hm-secondary),
+            var(--hm-accent)
+        );
+}
+
+/* ==========================================================
+   ACCESSIBILITY & INTERACTION
+========================================================== */
+
+.hm-refresh-button:focus-visible,
+.hm-primary-button:focus-visible,
+.hm-secondary-button:focus-visible,
+.hm-clear-filter-button:focus-visible,
+.hm-alert-retry:focus-visible,
+.hm-icon-button:focus-visible,
+.hm-modal-close:focus-visible,
+.hm-form-group input:focus-visible,
+.hm-form-group select:focus-visible,
+.hm-form-group textarea:focus-visible,
+.hm-status-select:focus-visible {
+    outline: 3px solid rgba(13, 148, 136, 0.24);
+    outline-offset: 3px;
+}
+
+.hm-refresh-button:active,
+.hm-primary-button:active,
+.hm-secondary-button:active,
+.hm-clear-filter-button:active,
+.hm-alert-retry:active,
+.hm-icon-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ==========================================================
+   MODAL ANIMATIONS
+========================================================== */
+
+@keyframes hmOverlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hmModalIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(24px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+
+@media (max-width: 1100px) {
+    .hm-statistics-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .hm-filter-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .hm-search-group {
+        grid-column: 1 / -1;
+    }
+
+    .hm-applications-page {
+        gap: 24px;
+    }
+
+    .hm-panel {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 820px) {
+    .hm-page-header,
+    .hm-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hm-page-header > div,
+    .hm-panel-header > div {
+        width: 100%;
+    }
+
+    .hm-refresh-button,
+    .hm-clear-filter-button {
+        width: 100%;
+    }
+
+    .hm-form-grid,
+    .hm-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hm-form-group-full {
+        grid-column: auto;
+    }
+
+    .hm-modal {
+        max-width: 680px;
+    }
+
+    .hm-modal-header,
+    .hm-modal-body,
+    .hm-modal-footer {
+        padding: 20px;
+    }
+
+    .hm-table-wrapper {
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .hm-applications-page {
+        gap: 20px;
+        padding: 0;
+    }
+
+    .hm-page-header,
+    .hm-panel-header,
+    .hm-modal-header,
+    .hm-modal-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hm-page-header h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .hm-panel-header h2,
+    .hm-modal-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .hm-statistics-grid,
+    .hm-filter-grid,
+    .hm-form-grid,
+    .hm-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hm-search-group,
+    .hm-form-group-full {
+        grid-column: auto;
+    }
+
+    .hm-stat-card {
+        padding: 20px;
+    }
+
+    .hm-stat-value {
+        font-size: 1.85rem;
+    }
+
+    .hm-panel {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    .hm-filter-grid {
+        margin-top: 18px;
+    }
+
+    .hm-table-wrapper {
+        margin-top: 18px;
+    }
+
+    .hm-applications-table {
+        min-width: 850px;
+    }
+
+    .hm-modal-overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .hm-modal {
+        max-height: 94vh;
+        max-width: none;
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0;
+        border-radius: 24px 24px 0 0;
+    }
+
+    .hm-modal-header {
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .hm-modal-footer {
+        gap: 10px;
+    }
+
+    .hm-modal-footer .hm-primary-button,
+    .hm-modal-footer .hm-secondary-button {
+        width: 100%;
+    }
+
+    .hm-details-grid > div {
+        min-height: auto;
+    }
+
+    .hm-table-actions {
+        align-items: stretch;
+        flex-direction: column;
+        min-width: 170px;
+    }
+
+    .hm-icon-button {
+        width: 100%;
+    }
+
+    .hm-status-select {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hm-page-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+    }
+
+    .hm-page-description {
+        font-size: 0.9rem;
+    }
+
+    .hm-alert {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .hm-alert-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+    }
+
+    .hm-alert {
+        position: relative;
+        padding-right: 46px;
+    }
+
+    .hm-stat-card {
+        border-radius: 18px;
+    }
+
+    .hm-form-group input,
+    .hm-form-group select,
+    .hm-form-group textarea,
+    .hm-status-select {
+        padding: 12px 13px;
+    }
+
+    .hm-modal-header,
+    .hm-modal-body,
+    .hm-modal-footer {
+        padding: 16px;
+    }
+
+    .hm-modal-close {
+        width: 38px;
+        height: 38px;
+    }
+
+    .hm-detail-section {
+        margin-top: 20px;
+        padding-top: 18px;
+    }
+}
+
+/* ==========================================================
+   MOTION POLISH
+========================================================== */
+
+.hm-stat-card,
+.hm-panel,
+.hm-alert,
+.hm-table-wrapper {
+    animation:
+        hmContentReveal 0.55s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.hm-stat-card:nth-child(1) {
+    animation-delay: 0.04s;
+}
+
+.hm-stat-card:nth-child(2) {
+    animation-delay: 0.09s;
+}
+
+.hm-stat-card:nth-child(3) {
+    animation-delay: 0.14s;
+}
+
+.hm-stat-card:nth-child(4) {
+    animation-delay: 0.19s;
+}
+
+.hm-panel:nth-of-type(1) {
+    animation-delay: 0.16s;
+}
+
+.hm-panel:nth-of-type(2) {
+    animation-delay: 0.22s;
+}
+
+.hm-applications-table tbody tr {
+    animation:
+        hmRowReveal 0.4s ease both;
+}
+
+.hm-applications-table tbody tr:nth-child(1) {
+    animation-delay: 0.03s;
+}
+
+.hm-applications-table tbody tr:nth-child(2) {
+    animation-delay: 0.06s;
+}
+
+.hm-applications-table tbody tr:nth-child(3) {
+    animation-delay: 0.09s;
+}
+
+.hm-applications-table tbody tr:nth-child(4) {
+    animation-delay: 0.12s;
+}
+
+.hm-applications-table tbody tr:nth-child(5) {
+    animation-delay: 0.15s;
+}
+
+.hm-applications-table tbody tr:nth-child(6) {
+    animation-delay: 0.18s;
+}
+
+@keyframes hmContentReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(18px)
+            scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes hmRowReveal {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================
+   REDUCED MOTION SUPPORT
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .hm-stat-card:hover,
+    .hm-applications-table tbody tr:hover,
+    .hm-details-grid > div:hover,
+    .hm-icon-button:hover,
+    .hm-status-badge:hover {
+        transform: none;
+    }
+}
+
+/* ==========================================================
+   PRINT SUPPORT
+========================================================== */
+
+@media print {
+    .hm-applications-page {
+        display: block;
+        color: #000;
+    }
+
+    .hm-page-header,
+    .hm-panel,
+    .hm-stat-card,
+    .hm-table-wrapper {
+        box-shadow: none;
+    }
+
+    .hm-refresh-button,
+    .hm-clear-filter-button,
+    .hm-table-actions,
+    .hm-modal-overlay {
+        display: none !important;
+    }
+
+    .hm-statistics-grid {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+    }
+
+    .hm-panel,
+    .hm-stat-card,
+    .hm-table-wrapper {
+        break-inside: avoid;
+        border: 1px solid #cbd5e1;
+    }
+
+    .hm-applications-table {
+        min-width: 0;
+    }
+
+    .hm-applications-table thead {
+        background: #e2e8f0 !important;
+        color: #000 !important;
+    }
+
+    .hm-applications-table th,
+    .hm-applications-table td {
+        color: #000;
+    }
+}

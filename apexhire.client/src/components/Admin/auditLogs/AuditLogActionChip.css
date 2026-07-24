@@ -1,0 +1,524 @@
+﻿/*
+ * =========================================================
+ * CONDOMINIUM.LK INSPIRED AUDIT ACTION CHIP
+ * Maroon • White • Yellow • Blue
+ * =========================================================
+ */
+
+.condo-audit-action-chip {
+    --condo-maroon: #7a1731;
+    --condo-maroon-dark: #4f0b1d;
+    --condo-maroon-light: #a42a4b;
+
+    --condo-yellow: #f8c400;
+    --condo-yellow-light: #ffe783;
+
+    --condo-blue: #175fa8;
+    --condo-blue-dark: #0d3d72;
+    --condo-blue-light: #d9ecff;
+
+    --condo-white: #ffffff;
+    --condo-text: #32111c;
+
+    position: relative;
+    isolation: isolate;
+
+    min-width: 94px !important;
+    height: 30px !important;
+
+    justify-content: center !important;
+
+    border: 1px solid
+        rgba(122, 23, 49, 0.32) !important;
+
+    border-radius: 999px !important;
+
+    overflow: hidden;
+
+    color: var(--condo-maroon) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(255, 246, 207, 0.92)
+        ) !important;
+
+    box-shadow:
+        0 3px 8px
+            rgba(79, 11, 29, 0.1),
+        inset 0 1px 0
+            rgba(255, 255, 255, 0.9);
+
+    cursor: default;
+
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        border-color 220ms ease,
+        color 220ms ease,
+        background 220ms ease;
+
+    animation:
+        condoChipEnter
+        480ms
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        both;
+}
+
+.condo-audit-action-chip::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -2;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 10%,
+            rgba(248, 196, 0, 0.34) 45%,
+            transparent 80%
+        );
+
+    transform: translateX(-130%);
+
+    transition:
+        transform 650ms ease;
+}
+
+.condo-audit-action-chip::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 9px;
+
+    width: 6px;
+    height: 6px;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    background: var(--condo-yellow);
+
+    box-shadow:
+        0 0 0 3px
+            rgba(248, 196, 0, 0.16),
+        0 0 10px
+            rgba(248, 196, 0, 0.48);
+
+    transform:
+        translateY(-50%)
+        scale(1);
+
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease;
+}
+
+.condo-audit-action-chip:hover {
+    transform:
+        translateY(-3px)
+        scale(1.035);
+
+    color: var(--condo-white) !important;
+
+    border-color:
+        var(--condo-yellow) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--condo-maroon),
+            var(--condo-maroon-dark)
+        ) !important;
+
+    box-shadow:
+        0 9px 20px
+            rgba(79, 11, 29, 0.24),
+        0 3px 8px
+            rgba(23, 95, 168, 0.12),
+        inset 0 1px 0
+            rgba(255, 255, 255, 0.18);
+}
+
+.condo-audit-action-chip:hover::before {
+    transform: translateX(130%);
+}
+
+.condo-audit-action-chip:hover::after {
+    transform:
+        translateY(-50%)
+        scale(1.18);
+
+    box-shadow:
+        0 0 0 4px
+            rgba(248, 196, 0, 0.2),
+        0 0 15px
+            rgba(248, 196, 0, 0.72);
+}
+
+.condo-audit-action-chip:active {
+    transform:
+        translateY(-1px)
+        scale(0.98);
+}
+
+.condo-audit-action-chip:focus-visible {
+    outline:
+        3px solid
+        rgba(23, 95, 168, 0.3);
+
+    outline-offset: 3px;
+}
+
+.condo-audit-action-chip
+.MuiChip-label {
+    position: relative;
+
+    z-index: 2;
+
+    padding-right: 13px !important;
+    padding-left: 23px !important;
+
+    overflow: hidden;
+
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.025em;
+    line-height: 1;
+
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+
+    transition:
+        letter-spacing 220ms ease;
+}
+
+.condo-audit-action-chip:hover
+.MuiChip-label {
+    letter-spacing: 0.055em;
+}
+
+/*
+ * =========================================================
+ * ACTION-SPECIFIC VARIATIONS
+ * =========================================================
+ */
+
+.condo-audit-action-chip--create,
+.condo-audit-action-chip--register,
+.condo-audit-action-chip--approve {
+    color: #13633c !important;
+
+    border-color:
+        rgba(19, 99, 60, 0.3) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #eaf9f0
+        ) !important;
+}
+
+.condo-audit-action-chip--create::after,
+.condo-audit-action-chip--register::after,
+.condo-audit-action-chip--approve::after {
+    background: #20a464;
+
+    box-shadow:
+        0 0 0 3px
+            rgba(32, 164, 100, 0.14),
+        0 0 10px
+            rgba(32, 164, 100, 0.4);
+}
+
+.condo-audit-action-chip--create:hover,
+.condo-audit-action-chip--register:hover,
+.condo-audit-action-chip--approve:hover {
+    color: var(--condo-white) !important;
+
+    border-color:
+        var(--condo-yellow) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #177447,
+            #0c4b2c
+        ) !important;
+}
+
+.condo-audit-action-chip--update,
+.condo-audit-action-chip--assign,
+.condo-audit-action-chip--import {
+    color: var(--condo-blue) !important;
+
+    border-color:
+        rgba(23, 95, 168, 0.3) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--condo-white),
+            var(--condo-blue-light)
+        ) !important;
+}
+
+.condo-audit-action-chip--update::after,
+.condo-audit-action-chip--assign::after,
+.condo-audit-action-chip--import::after {
+    background: var(--condo-blue);
+
+    box-shadow:
+        0 0 0 3px
+            rgba(23, 95, 168, 0.14),
+        0 0 10px
+            rgba(23, 95, 168, 0.4);
+}
+
+.condo-audit-action-chip--update:hover,
+.condo-audit-action-chip--assign:hover,
+.condo-audit-action-chip--import:hover {
+    color: var(--condo-white) !important;
+
+    border-color:
+        var(--condo-yellow) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--condo-blue),
+            var(--condo-blue-dark)
+        ) !important;
+}
+
+.condo-audit-action-chip--delete,
+.condo-audit-action-chip--reject {
+    color: #a10f2b !important;
+
+    border-color:
+        rgba(161, 15, 43, 0.3) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ffe8ed
+        ) !important;
+}
+
+.condo-audit-action-chip--delete::after,
+.condo-audit-action-chip--reject::after {
+    background: #d32647;
+
+    box-shadow:
+        0 0 0 3px
+            rgba(211, 38, 71, 0.14),
+        0 0 10px
+            rgba(211, 38, 71, 0.42);
+}
+
+.condo-audit-action-chip--delete:hover,
+.condo-audit-action-chip--reject:hover {
+    color: var(--condo-white) !important;
+
+    border-color:
+        var(--condo-yellow) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b11636,
+            #73091f
+        ) !important;
+}
+
+.condo-audit-action-chip--login,
+.condo-audit-action-chip--logout {
+    color: #694f00 !important;
+
+    border-color:
+        rgba(248, 196, 0, 0.65) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #fff3b7
+        ) !important;
+}
+
+.condo-audit-action-chip--login:hover,
+.condo-audit-action-chip--logout:hover {
+    color: var(--condo-white) !important;
+
+    border-color:
+        var(--condo-yellow) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--condo-maroon-light),
+            var(--condo-maroon-dark)
+        ) !important;
+}
+
+.condo-audit-action-chip--export {
+    color: #5d247d !important;
+
+    border-color:
+        rgba(93, 36, 125, 0.3) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f2e6fb
+        ) !important;
+}
+
+.condo-audit-action-chip--export::after {
+    background: #7b35a3;
+}
+
+.condo-audit-action-chip--export:hover {
+    color: var(--condo-white) !important;
+
+    border-color:
+        var(--condo-yellow) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b35a3,
+            #46145f
+        ) !important;
+}
+
+.condo-audit-action-chip--unknown {
+    color: #5f6670 !important;
+
+    border-color:
+        rgba(95, 102, 112, 0.3) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #edf0f4
+        ) !important;
+}
+
+.condo-audit-action-chip--unknown::after {
+    background: #7b8490;
+}
+
+.condo-audit-action-chip--unknown:hover {
+    color: var(--condo-white) !important;
+
+    border-color:
+        var(--condo-yellow) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #707985,
+            #434951
+        ) !important;
+}
+
+/*
+ * =========================================================
+ * TOOLTIP
+ * =========================================================
+ */
+
+.condo-audit-action-tooltip-popper
+.MuiTooltip-tooltip {
+    padding: 8px 12px;
+
+    border:
+        1px solid
+        rgba(248, 196, 0, 0.42);
+
+    border-radius: 9px;
+
+    color: var(
+        --condo-white,
+        #ffffff
+    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #7a1731,
+            #4f0b1d
+        );
+
+    box-shadow:
+        0 10px 24px
+        rgba(79, 11, 29, 0.28);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.condo-audit-action-tooltip-popper
+.MuiTooltip-arrow {
+    color: #671126;
+}
+
+/*
+ * =========================================================
+ * ANIMATION
+ * =========================================================
+ */
+
+@keyframes condoChipEnter {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            scale(0.92);
+
+        filter: blur(2px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+    .condo-audit-action-chip,
+    .condo-audit-action-chip::before,
+    .condo-audit-action-chip::after,
+    .condo-audit-action-chip
+    .MuiChip-label {
+        animation: none !important;
+        transition: none !important;
+    }
+}
